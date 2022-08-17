@@ -16,7 +16,7 @@ The "Hello" Worm bin is open source hardware. License will be added soon.
 
 ## Why?
 
-Maintaing a worm bin is not without complications. Worms can "run" away, overheat or dry out. As a friendly human you want the best for your worms. So how can you know if your worms are happy? - without checking everyday, disturbing the worms and getting dirty hands.
+Maintaining a worm bin is not without complications. Worms can "run" away, overheat or dry out. As a friendly human you want the best for your worms. So how can you know if your worms are happy? - without checking everyday, disturbing the worms and getting dirty hands.
 
  Here are some of the common problems.
 - Overheating
