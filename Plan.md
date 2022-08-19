@@ -1,7 +1,8 @@
 # "Hello" Worm Plan
 
-- Experiment with different sensors
+- Experiment with different sensors. Sensor above or in the soil?
 - Make a first prototype with bucket and WebThings
+- Do worms get annoyed by electronic sensors in the soil? 
 - Make a 3D file sensor attachment to bucket
 - Probably the worm bin is not close to a socket.. can we power the sensors with a battery and send it to a central point? Will radio reduce energy needed? or should we use wifi?
 - Analayze sensor data with Pandas
