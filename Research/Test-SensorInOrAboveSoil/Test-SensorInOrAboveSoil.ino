@@ -11,7 +11,7 @@
 // Soil Sensor
 // https://makersportal.com/blog/2020/5/26/capacitive-soil-moisture-calibration-with-arduino
 // on calibration - https://makersportal.com/blog/2020/5/26/capacitive-soil-moisture-calibration-with-arduino
-
+// percentage - based on https://how2electronics.com/capacitive-soil-moisture-sensor-esp8266-esp32-oled-display/
 
 // DHT Sensor
 /* DHT Shield - Simple
@@ -90,9 +90,9 @@ void loop() {
   float temperatureC = sensors.getTempCByIndex(0);
   float temperatureF = sensors.getTempFByIndex(0);
   Serial.print(temperatureC);
-  Serial.println("ºC");
+  Serial.println("ï¿½C");
   Serial.print(temperatureF);
-  Serial.println("ºF");
+  Serial.println("ï¿½F");
 
 
   // Soil Moisture
@@ -140,4 +140,3 @@ void loop() {
   
   delay(5000);
 }
-

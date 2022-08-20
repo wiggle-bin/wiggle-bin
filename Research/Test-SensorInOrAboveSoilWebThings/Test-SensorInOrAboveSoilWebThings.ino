@@ -40,7 +40,11 @@ const int oneWireBus = 4;
 
 // Simple code for Measuring Voltage from
 // Capacitive soil moisture sensor
+// Check article on how to set AirValue and WaterValue - https://how2electronics.com/capacitive-soil-moisture-sensor-esp8266-esp32-oled-display/
+const int AirValue = 860;
+const int WaterValue = 440;
 int soil_pin = A0; // AOUT pin on sensor
+int soilMoisturePercent = 0;
 
 
 // DHT humidity/temperature sensors
@@ -161,7 +165,13 @@ void loop() {
   helloWormSoilTemperature.setValue(value);
 
   // Soil Moisture  
-  value.number = ( 100 - ( (analogRead(soil_pin)/1023.00) * 100 ));
+  soilMoisturePercent = map(analogRead(soil_pin), AirValue, WaterValue, 0, 100);
+  if(soilMoisturePercent > 100) {
+    soilMoisturePercent = 100;
+  } else if(soilMoisturePercent < 0) {
+    soilMoisturePercent = 0;
+  }
+  value.number = soilMoisturePercent;
   helloWormSoilMoisture.setValue(value);
   
   // DHT Sensor
