@@ -265,6 +265,7 @@ Pros and cons:
 
 Could try out the WLG M20088A/BEG panel I already have:
 https://arduino.stackexchange.com/questions/21237/how-to-use-a-bi-color-matrix-led-8x8-with-24-pins
+Tutorial on ESP8266 connected to led matrix https://microcontrollerslab.com/max7219-led-dot-matrix-display-esp8266-nodemcu-tutorial/
 
 **Articles**
 
@@ -273,3 +274,8 @@ https://www.google.com/amp/s/www.arducam.com/ov2640/%3famp
 
 *ESP32 with self-made night camera. Version runs on 12v because of IR led ring.*
 https://hackermagnet.com/night-vision-on-esp32-cam/ 
+
+## Soil Moisture Sensor
+
+Casing
+https://www.thingiverse.com/thing:2952434/comments
