@@ -151,11 +151,10 @@ void setup() {
 
   // Start the DHT sensor
   dht.begin();
-}
 
-
-void loop() {
-  // WebThings
+  //// GATHERING AND SENDING INFORMATION
+  
+   // WebThings
   ThingPropertyValue value;
   
   // Temperature
@@ -180,7 +179,7 @@ void loop() {
   float h = dht.readHumidity();
   // Read temperature as Celsius (the default), use dht.readTemperature(true) for Fahrenheit
   float t = dht.readTemperature();
-  
+
   value.number = t;
   helloWormTemperature.setValue(value);
   value.number = h;
@@ -190,6 +189,16 @@ void loop() {
 
   // Send update
   adapter->update();
+
+  Serial.println("Update send to WebThings");
   
-  delay(5000);
+  delay(500);
+
+  Serial.println("Deep Sleep");
+  ESP.deepSleep(1*60*1000000); // 1 minute sleep
+}
+
+
+void loop() {
+ 
 }
