@@ -208,3 +208,65 @@ https://www.dfrobot.com/product-1636.html
 https://www.dfrobot.com/product-2600.html
 https://www.tinytronics.nl/shop/nl/sensoren/lucht/vochtigheid/dfrobot-sht31-weerbestendige-temperatuur-en-luchtvochtigheidssensor
 https://www.dfrobot.com/product-2279.html
+
+## Batteries
+
+https://www.youtube.com/watch?v=FrCgQgahzsI
+https://myesp8266.blogspot.com/2017/07/battery-powered-wemos-d1-with-wemoss.html
+https://arduinodiy.wordpress.com/2016/12/25/monitoring-lipo-battery-voltage-with-wemos-d1-minibattery-shield-and-thingspeak/
+https://emariete.com/en/co2-meter-with-battery-well-done/
+https://randomnerdtutorials.com/power-esp32-esp8266-solar-panels-battery-level-monitoring/
+
+*Re-use phone battery*
+https://www.kickstarter.com/projects/betterre/better-re-upcycling-power-pack-reusing-smartphone
+
+*Temperature*
+https://www.youtube.com/watch?v=2wbWN-0qttY
+
+## WebThings
+
+Reading the database
+https://discourse.mozilla.org/t/access-to-database/72107x
+
+https://webthings.io/framework/
+
+## Camera
+
+On worms and reaction to light. Red makes them happy, IR even happier.
+https://redlightman.com/blog/red-light-doubles-vermicompost-rate/. 
+https://www.researchgate.net/figure/Planarian-Photophobic-Responses-Vary-by-Wavelength-A-Images-of-the-photophobia-assay_fig1_269415991
+
+A. Use RED led panel /  strip or IR LEDs
+B. Could use a red filter or IR transmitting sheet and take advantage of sunlight.
+https://www.eplastics.com/plexiglass/acrylic-sheets/ir-transmitting
+https://www.ebay.com/itm/231787983493
+
+Camera options:
+
+**Night vision camera:**
+
+Pros and cons:
+- Cheaper then thermal camera
+- Runs on low voltage
+- Worms like the IR light
+
+**Thermal camera:**
+
+Pros and cons:
+- Provides indication of temperatureon soil level
+- More expensive
+
+**Normal camera with red light:**
+
+Pros and cons:
+- Allows for a peep hole for human to look into
+- Worms like red light, a bit less then IR light
+- Can be used with standard phone camera as well
+
+**Articles**
+
+*Option to add camera with night vision. Also includes battery connector. Includes many options, is 20$.*
+https://www.google.com/amp/s/www.arducam.com/ov2640/%3famp
+
+*ESP32 with self-made night camera. Version runs on 12v because of IR led ring.*
+https://hackermagnet.com/night-vision-on-esp32-cam/ 
