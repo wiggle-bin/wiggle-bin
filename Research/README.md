@@ -263,6 +263,9 @@ Pros and cons:
 - Worms like red light, a bit less then IR light
 - Can be used with standard phone camera as well
 
+Could try out the WLG M20088A/BEG panel I already have:
+https://arduino.stackexchange.com/questions/21237/how-to-use-a-bi-color-matrix-led-8x8-with-24-pins
+
 **Articles**
 
 *Option to add camera with night vision. Also includes battery connector. Includes many options, is 20$.*
