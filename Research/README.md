@@ -220,6 +220,9 @@ https://randomnerdtutorials.com/power-esp32-esp8266-solar-panels-battery-level-m
 *Re-use phone battery*
 https://www.kickstarter.com/projects/betterre/better-re-upcycling-power-pack-reusing-smartphone
 
+Power bank:
+https://www.mischianti.org/2019/01/24/emergency-power-bank-homemade/
+
 *Temperature*
 https://www.youtube.com/watch?v=2wbWN-0qttY
 
@@ -279,3 +282,9 @@ https://hackermagnet.com/night-vision-on-esp32-cam/
 
 Casing
 https://www.thingiverse.com/thing:2952434/comments
+
+## WemosD1 mini deep sleep
+
+Resistor or schottky diode BAT43 between D0 and RST
+https://github.com/universam1/iSpindel/issues/59
+https://www.esp8266.com/viewtopic.php?f=13&t=7918&start=24#sthash.9AUQQ49G.dpuf
