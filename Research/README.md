@@ -283,6 +283,21 @@ https://hackermagnet.com/night-vision-on-esp32-cam/
 Casing
 https://www.thingiverse.com/thing:2952434/comments
 
+Fix:
+https://www.youtube.com/watch?v=QGCrtXf8YSs
+
+Waterproofing
+https://www.ourpcb.com/waterproof-pcb.html
+https://www.youtube.com/watch?v=h8ycmroFQSs
+https://www.youtube.com/watch?v=1ZCn0xkkQSk
+
+Nail polish:
+https://orlybeauty.com/blogs/news/what-is-gel-nail-polish-made-of
+
+Camera + AI
+https://www.photonics.com/Articles/Standard_Digital_Camera_and_AI_Pair_for_Soil/a66799
+https://munsell.com/about-munsell-color/how-color-notation-works/how-to-read-color-chart/
+
 ## WemosD1 mini deep sleep
 
 Resistor or schottky diode BAT43 between D0 and RST
