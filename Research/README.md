@@ -246,12 +246,14 @@ https://www.ebay.com/itm/231787983493
 
 Camera options:
 
-**Night vision camera:**
+**Night vision / infrared camera:**
 
 Pros and cons:
 - Cheaper then thermal camera
 - Runs on low voltage
 - Worms like the IR light
+
+https://www.youtube.com/watch?v=sttQAL4r4TQ
 
 **Thermal camera:**
 
@@ -266,9 +268,34 @@ Pros and cons:
 - Worms like red light, a bit less then IR light
 - Can be used with standard phone camera as well
 
+5v led strip:
+NeoPixel needs capacitator
+https://www.otronic.nl/a-64167598/leds/24-bit-rgb-leds-ws2812b-cirkel-rond-neopixel/
+https://www.otronic.nl/a-71908879/leds/5mm-super-flux-piranha-4pin-led-rood/
+https://www.otronic.nl/a-62484269/leds/8-bit-rgb-leds-ws2812b-op-printplaatje/
+https://www.otronic.nl/a-64167231/leds/12-bit-rgb-leds-ws2812b-cirkel-rond-neopixel/
+https://www.tinytronics.nl/shop/en/lighting/led-strips/led-strips/ws2812b-digital-5050-rgb-led-strip-30-leds-1m
+https://learn.adafruit.com/adafruit-neopixel-uberguide/powering-neopixels
+https://www.otronic.nl/a-64167231/leds/12-bit-rgb-leds-ws2812b-cirkel-rond-neopixel/
+https://elektronicavoorjou.nl/en/product/5v-cob-led-strip-rood/
+https://nl.farnell.com/seeed-studio/104020108/rgb-led-strip-30-m-seeedunio-arduino/dp/4007787?st=LED-strip%20rood%205v
+https://nl.aliexpress.com/item/4000299931029.html?spm=a2g0o.ppclist.product.2.6b7dFD0fFD0fQs&pdp_npi=2%40dis%21EUR%21%E2%82%AC%200%2C87%21%E2%82%AC%200%2C74%21%21%21%21%21%40211b5e2516626716687135845e7904%2110000001240410826%21btf&_t=pvid%3Ab766f141-e50f-44e7-8069-83ef8838bc86&afTraceInfo=4000299931029__pc__pcBridgePPC__xxxxxx__1662671668&gatewayAdapt=glo2nld
+
+
+Powering LEDs on battery:
+https://www.youtube.com/watch?app=desktop&v=ycFTxCoNAQk
+
+RED Led panel with MAX7219 chip:
+https://www.best-microcontroller-projects.com/max7219.html
+https://www.instructables.com/Arduino-8x8-LED-Matrix/
+only one column at a time is on, so not great for our purpose
+
 Could try out the WLG M20088A/BEG panel I already have:
 https://arduino.stackexchange.com/questions/21237/how-to-use-a-bi-color-matrix-led-8x8-with-24-pins
 Tutorial on ESP8266 connected to led matrix https://microcontrollerslab.com/max7219-led-dot-matrix-display-esp8266-nodemcu-tutorial/
+
+Blue filter - not for worms, but plants
+https://www.raspberrypi.com/news/whats-that-blue-thing-doing-here/
 
 **Articles**
 
