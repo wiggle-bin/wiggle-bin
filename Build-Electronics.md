@@ -23,7 +23,7 @@ Connect the sensors on the breadboard according to the schematic below.
 
 ![](Design/HelloWormBreadboardFritzing.png)
 
-<small>Fritzing file is available in [Design/HelloWorm.fzz](Design/HelloWorm.fzz)</small>
+Fritzing file is available in [Design/HelloWorm.fzz](Design/HelloWorm.fzz)
 
 Here are some real life pictures for reference.
 
