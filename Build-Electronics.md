@@ -65,7 +65,7 @@ Check out the Arduino Serial Monitor. You should see a message like this.
 
 Navigate to `https://[your name].webthings.io` (or `http://gateway.local` depending on your setup) in the browser.
 
-You should now see this screen from WebThings. My screen will look a bit different, since I already have some things installed.
+You should now see this screen from WebThings.
 
 ![](Images/WebThings/WebThingsEntranceScreen.png)
 
@@ -104,7 +104,7 @@ Click on the burger menu in the left top and open the `Rules` window.
 
 ![](Images/WebThings/WebThingRulesOpenMenu.png)
  
-You should now see this Rules screen. My screen will look a bit different, since I already have some rules active in WebThings. Click on the plus (right bottom) to add a new rule.
+You should now see this Rules screen. Click on the plus (right bottom) to add a new rule.
 
 ![](Images/WebThings/WebThingsRulesScreen.png)
 
