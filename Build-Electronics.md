@@ -114,7 +114,7 @@ Drag the WiggleBin sensor to the left of the screen. Set for example the tempera
 
 Drag the browser notification to the right of the screen and write a message like 🪱 "Tooo hot! Help!".
 
-Change the Rule Name to "Worms to hot" and click on the back arrow (left top). 
+Change the Rule Name to "Worms too hot" and click on the back arrow (left top). 
 
 ![](Images/WebThings/WebThingsRuleRight.png)
 
