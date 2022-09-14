@@ -156,7 +156,7 @@ ESP.deepSleep(1*60*1000000); // 1 minute slee
 
 ### Debugging
 
-Sometging does not work! Mmmhh.. try the following.
+Something does not work! Mmmhh.. try the following.
 
 Go to http://xxx.xxx.x.xx/things/WiggleBinSensor/properties in the browser. Check if the values appear correctly. You might have to refresh a couple of times because of a sleepy Wemos.
 
