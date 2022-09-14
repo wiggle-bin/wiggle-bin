@@ -33,6 +33,7 @@ To collect data from the WiggleBin Sensors we need a central unit.
 
 The Raspberry Pi with [WebThings](https://webthings.io) installed acts as a central unit to display sensor info. WebThings can also trigger alerts when a sensor passes a certain value, perfect for detecting unhappy worms.
 
+> **Warning**
 > Currently we are working [on a blocker issue](https://github.com/studiorabota/wiggle-bin/issues/13 ) which causes WebThings not to update sensor data
 
 Follow the [WebThings start guide](https://webthings.io/docs/gateway-getting-started-guide.html) to set up a WebThings station.
