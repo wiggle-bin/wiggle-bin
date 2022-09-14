@@ -64,13 +64,13 @@ Navigate to `https://[your name].webthings.io` (or `http://gateway.local` depend
 
 You should now see this screen from WebThings. Mine already has some things installed. Your screen will probably empty.
 
-![](Images/WebThingsEntranceScreen.png)
+![](Images/WebThings/WebThingsEntranceScreen.png)
 
 The device can only be added when the Wemos is not in sleeping. Keep an eye on your monitor and hit the plus button (right bottom) when it says `HTTP server started` in the Arduino Serial Monitor.
 
 WebThings will start looking for the WiggleBin sensor. Unfortunaly this process often fails. To solve this click on `Add by URL...`.
 
-![](Images/WebThingsLoadingScreen.png)
+![](Images/WebThings/WebThingsLoadingScreen.png)
 
 Copy the URL from the Arduino Serial monitor.
 
@@ -80,19 +80,19 @@ Copy the URL from the Arduino Serial monitor.
 
 Paste the url and click `Submit`.
 
-![](Images/WebThingsAddURL.png)
+![](Images/WebThings/WebThingsAddURL.png)
 
 You should now see the WiggleBin sensor. Press `Save` and `Done` to add the device to WebThings.
 
-![](Images/WebThingsSave.png)
+![](Images/WebThings/WebThingsSave.png)
 
 The sensor is now visible in the overview and already showing the temperature.
 
-![](Images/WebThingsEntranceScreenWithWiggleBinSensor.png)
+![](Images/WebThings/WebThingsEntranceScreenWithWiggleBinSensor.png)
 
 Click on the spidery icon to display all WiggleBin sensor info. So cool! Happy worms 🪱.
 
-![](Images/WebThingsSensorInfo.png)
+![](Images/WebThings/WebThingsSensorInfo.png)
 
 
 ## Setting up alerts
