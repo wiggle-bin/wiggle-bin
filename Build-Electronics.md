@@ -23,7 +23,10 @@ Connect the sensors. Fritzing file is available in [Design/HelloWorm.fzz](Design
 
 ![](Design/HelloWormBreadboardFritzing.png)
 
-![](Design/HelloWormBreadboardRealLife.jpg)
+It better to connect the sensors on the breadboard first before installing the electronics in the bin. Here are some pictures for reference.
+
+| ![](Images/Electronics/Electronics_Wemos_Close_up.jpg) | ![](Images/Electronics/Electronics_Together.jpg) | ![](Images/Electronics/Electronics_Battery_Temperature.jpg)
+|-|-|-|
 
 Upload the code from [Code/WiggleBinSerial](Code/WiggleBinSerial). You can now view the incoming data from the Arduino Serial Monitor.
 
