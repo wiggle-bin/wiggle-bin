@@ -6,6 +6,8 @@ The WiggleBin project is about letting worms communicate with humans.
 
 The following is a guide on developing a [vermicomposting](https://en.wikipedia.org/wiki/Vermicompost) bin which makes both **worms** and **humans** happy. 
 
+![](Images/WiggleBinV001/Box/WiggleBinPrototype001_Complete.jpg)
+
 This project is in the research and testing phase. Currently we are look at which sensors are usable for this project. See [issues](https://github.com/studiorabota/wiggle-bin/issues) for more info and how to contribute.
 
 > This documentation does not go into how to vermicompost. Plenty of other resources are available online.

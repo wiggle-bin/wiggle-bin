@@ -78,7 +78,7 @@ We came up with the idea of re-using a film roll case. Which provides a more ele
 
 ![](Images/WiggleBinV001/SoilSensor/SoilSensorWaterproof_Tools.jpg)
 
-Print the bottle cap with a 3D printer. You can download the Fusion 360 and STL file in `Design/SoilSensorWaterProofCap`.
+Print the bottle cap with a 3D printer. You can download the 3D files in `Design/SoilSensorWaterProofCap`.
 
 ![](Images/WiggleBinV001/SoilSensor/SoilSensorWaterproof_3D_print.jpg)
 
@@ -91,7 +91,7 @@ Place the sensor and wire into the 3D printed cap. Solder the wire to the sensor
 | ![](Images/WiggleBinV001/SoilSensor/SoilSensorWaterproof_Sensor_In_Cap_Front.jpg) | ![](Images/WiggleBinV001/SoilSensor/SoilSensorWaterproof_Sensor_In_Cap_Back.jpg) | 
 |-|-|
 
-Place the cap on the top and you're done 😅.
+Place the cap on the film bottle, enjoy the snapping sound, and you're done 😅.
 
 ## Adding electronics
 
