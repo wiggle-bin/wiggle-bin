@@ -36,11 +36,14 @@ The Raspberry Pi with [WebThings](https://webthings.io) installed acts as a cent
 > **Warning**
 > Currently we are working [on a blocker issue](https://github.com/studiorabota/wiggle-bin/issues/13 ) which causes WebThings not to update sensor data
 
-## WebThings on Raspberry Pi
+### Materials
+- Raspberry Pi
+
+### WebThings on Raspberry Pi
 
 Follow the [WebThings start guide](https://webthings.io/docs/gateway-getting-started-guide.html) to set up a WebThings station.
 
-## Uploading code to Wemos
+### Making the Wemos a WebThing
 
 Change the name from `NetworkSettingsSample.h` to `NetworkSettings.h` and fill in your Wifi SSID and password. 
 
@@ -58,15 +61,15 @@ Check out the Arduino Serial Monitor. You should see a message like this.
 12:59:36.248 -> Deep Sleep
 ```
 
-## Adding WiggleBin to WebThings
+### Adding WiggleBin to WebThings
 
 Navigate to `https://[your name].webthings.io` (or `http://gateway.local` depending on your setup) in the browser.
 
-You should now see this screen from WebThings. Mine already has some things installed. Your screen will probably empty.
+You should now see this screen from WebThings. My screen will look a bit different, since I already have some things installed.
 
 ![](Images/WebThings/WebThingsEntranceScreen.png)
 
-The device can only be added when the Wemos is not in sleeping. Keep an eye on your monitor and hit the plus button (right bottom) when it says `HTTP server started` in the Arduino Serial Monitor.
+The device can only be added when the Wemos is not in sleeping. Keep an eye on your Arduino Serial Monitor and hit the plus button (right bottom) when it says `HTTP server started` in the Arduino Serial Monitor.
 
 WebThings will start looking for the WiggleBin sensor. Unfortunaly this process often fails. To solve this click on `Add by URL...`.
 
@@ -95,13 +98,13 @@ Click on the spidery icon to display all WiggleBin sensor info. So cool! Happy w
 ![](Images/WebThings/WebThingsSensorInfo.png)
 
 
-## Setting up alerts
+### Setting up alerts
 
 Click on the burger menu in the left top and open the `Rules` window.
 
 ![](Images/WebThings/WebThingRulesOpen.png)
  
-I already have some rules setup. Your screen might be empty. Click on the plus (right bottom) to add a new rule.
+You should now see this Rules screen. My screen will look a bit different, since I already have some rules active in WebThings. Click on the plus (right bottom) to add a new rule.
 
 ![](Images/WebThings/WebThingsRulesScreen.png)
 
@@ -111,15 +114,15 @@ Drag the WiggleBin sensor to the left of the screen. Set for example the tempera
 
 Drag the browser notification to the right of the screen and write a message like 🪱 "Tooo hot! Help!".
 
-Also change the Rule Name to "Worms to hot"
+Change the Rule Name to "Worms to hot" and click on the back arrow (left top). 
 
 ![](Images/WebThings/WebThingsRuleRight.png)
 
-Click on the back arrow (left top). The rule is now added to WebThings.
+The rule is now added to WebThings and should alert you when worms are overheating.
 
 ![](Images/WebThings/WebThingsRuleAdded.png)
 
-## Saving battery life
+### Saving battery life
 
 The code is set to send an update every 1 minute for testing purposes on first install. You probably want to change this to something like 30 minutes and safe battery life. Also the delay can be reduced between sending the update and placing the ESP in sleep 😴.
 
@@ -130,7 +133,7 @@ Serial.println("Deep Sleep");
 ESP.deepSleep(1*60*1000000); // 1 minute slee
 ```
 
-## Debugging
+### Debugging
 
 Sometging does not work! Mmmhh.. try the following.
 
