@@ -86,7 +86,9 @@ Take off the white connector from the soil sensor with some pliers. This will re
 
 ![](Images/WiggleBinV001/SoilSensor/SoilSensorWaterproof_3D_Pliers.jpg)
 
-Place the sensor and wire into the 3D printed cap. Solder the wire to the sensor.
+Place the sensor and wire into the 3D printed cap. The 3D print is designed to be supertight around the sensor and wire. Use a soft hammer to apply some pressure and kindly jam the sensor in.
+
+Solder the wire to the sensor using the 3 holes in at the back of the sensor. 
 
 | ![](Images/WiggleBinV001/SoilSensor/SoilSensorWaterproof_Sensor_In_Cap_Front.jpg) | ![](Images/WiggleBinV001/SoilSensor/SoilSensorWaterproof_Sensor_In_Cap_Back.jpg) | 
 |-|-|
