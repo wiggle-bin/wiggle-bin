@@ -102,7 +102,7 @@ Click on the spidery icon to display all WiggleBin sensor info. So cool! Happy w
 
 Click on the burger menu in the left top and open the `Rules` window.
 
-![](Images/WebThings/WebThingRulesOpen.png)
+![](Images/WebThings/WebThingRulesOpenMenu.png)
  
 You should now see this Rules screen. My screen will look a bit different, since I already have some rules active in WebThings. Click on the plus (right bottom) to add a new rule.
 
