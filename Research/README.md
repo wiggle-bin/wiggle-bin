@@ -1,4 +1,4 @@
-# "Hello" Worms Research
+# Wiggle Bin Research
 
 This document describes the research and prototype process for developing a Smart Worm Bin during the [Open Hardware Academy](https://www.openhardware.academy/01_Welcome.html).
 

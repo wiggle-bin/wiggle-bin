@@ -1,4 +1,4 @@
-# "Hello" Worm Electronics
+# Wiggle Bin Electronics
 
 ## Materials
 - [D1 Mini](https://www.tinytronics.nl/shop/en/development-boards/microcontroller-boards/with-wi-fi/d1-mini-esp8266-12f-ch340) or any other ESP8266 device

@@ -1,6 +1,6 @@
-# "Hello" Worm
+# Wiggle Bin
 
-The "Hello" Worm project is about letting worms communicate with humans. 
+The Wiggle Bin project is about letting worms communicate with humans. 
 
 > "Thanks for the food mate. It's a bit hot in this bucket.. can you help out?"
 
@@ -12,7 +12,7 @@ This project is in the research and testing phase. Currently we are look at whic
 
 ## License
 
-The "Hello" Worm bin is open source hardware. License will be added soon.
+The Wiggle Bin is open source hardware. License will be added soon.
 
 ## Why?
 
