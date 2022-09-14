@@ -32,6 +32,22 @@ Here are some real life pictures for reference.
 
 Upload the code from [Code/WiggleBinSerial](Code/WiggleBinSerial). You can now view the incoming data from the Arduino Serial Monitor.
 
+### Battery
+
+Because the WiggleBin will usually be placed outside in the garden or balcony we added the option to make it battery powered.
+
+Now batteries are not great for nature (chemicals and such). Therefore we created an experimental adapter which can be 3D printed and holds multiple types of batteries re-used from that old phone in your cabinet.
+
+The 3D files for this can be found in `Design/WiggleBinV001/BatteryHolder`.
+
+Wire the wires trough the holes and tighten the battery in with a bolt.
+
+> **Warning**
+> Batteries can be dangerous. Please be careful and only proceed when you have enough electronics experience. Otherwise use a battery supply off the shelf of an electronics store or a 5V wall adapter.
+
+| ![](Images/WiggleBinV001/BatteryHolder/BatteryHolder_Top.jpg) | ![](Images/WiggleBinV001/BatteryHolder/BatteryHolder_Side.jpg) | 
+|-|-|
+
 ## WiggleBin Central
 
 To collect data from the WiggleBin Sensors we need a central unit. 
