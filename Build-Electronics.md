@@ -19,11 +19,13 @@
 
 Setup the D1 Mini to be compatible with the Arduino IDE. Follow [these steps](https://github.com/esp8266/Arduino#installing-with-boards-manager).
 
-Connect the sensors. Fritzing file is available in [Design/HelloWorm.fzz](Design/HelloWorm.fzz)
+Connect the sensors on the breadboard according to the schematic below.
 
 ![](Design/HelloWormBreadboardFritzing.png)
 
-It better to connect the sensors on the breadboard first before installing the electronics in the bin. Here are some pictures for reference.
+<small>Fritzing file is available in [Design/HelloWorm.fzz](Design/HelloWorm.fzz)</small>
+
+Here are some real life pictures for reference.
 
 | ![](Images/Electronics/Electronics_Wemos_Close_up.jpg) | ![](Images/Electronics/Electronics_Together.jpg) | ![](Images/Electronics/Electronics_Battery_Temperature.jpg)
 |-|-|-|
