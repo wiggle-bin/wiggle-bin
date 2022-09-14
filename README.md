@@ -1,6 +1,6 @@
-# Wiggle Bin
+# WiggleBin
 
-The Wiggle Bin project is about letting worms communicate with humans. 
+The WiggleBin project is about letting worms communicate with humans. 
 
 > "Thanks for the food mate. It's a bit hot in this bucket.. can you help out?"
 
@@ -12,7 +12,7 @@ This project is in the research and testing phase. Currently we are look at whic
 
 ## License
 
-The Wiggle Bin is open source hardware. License will be added soon.
+The WiggleBin is open source hardware. License will be added soon.
 
 ## Why?
 

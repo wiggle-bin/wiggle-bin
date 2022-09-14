@@ -17,13 +17,13 @@ const char* password = NETWORK_PASSWORD;
 
 WebThingAdapter *adapter;
 
-const char *helloWormTypes[] = {"TemperatureSensor", nullptr};
-ThingDevice helloWorm("HelloWormSensor", "Hello Worm Sensor", helloWormTypes);
-ThingProperty helloWormTemperature("temperature", "", NUMBER, "TemperatureProperty");
-ThingProperty helloWormHumidity("humidity", "", NUMBER, "HumidityProperty");
-ThingProperty helloWormHeatIndex("heat index", "", NUMBER, "TemperatureProperty");
-ThingProperty helloWormSoilTemperature("soil temperature", "", NUMBER, "TemperatureProperty");
-ThingProperty helloWormSoilMoisture("soil moisture", "", NUMBER, "LevelProperty");
+const char *wiggleBinTypes[] = {"TemperatureSensor", nullptr};
+ThingDevice wiggleBin("WiggleBinSensor", "WiggleBin Sensor", wiggleBinTypes);
+ThingProperty wiggleBinTemperature("temperature", "", NUMBER, "TemperatureProperty");
+ThingProperty wiggleBinHumidity("humidity", "", NUMBER, "HumidityProperty");
+ThingProperty wiggleBinHeatIndex("heat index", "", NUMBER, "TemperatureProperty");
+ThingProperty wiggleBinSoilTemperature("soil temperature", "", NUMBER, "TemperatureProperty");
+ThingProperty wiggleBinSoilMoisture("soil moisture", "", NUMBER, "LevelProperty");
         
 // DS18B2 temperature sensor
 #include <OneWire.h>
@@ -101,47 +101,47 @@ void setup() {
   adapter = new WebThingAdapter("w25", WiFi.localIP());
 
 // Set unit for temperature
-  helloWormTemperature.unit = "degree celsius";
-  helloWormHeatIndex.unit = "degree celsius";
-  helloWormSoilTemperature.unit = "degree celsius";
+  wiggleBinTemperature.unit = "degree celsius";
+  wiggleBinHeatIndex.unit = "degree celsius";
+  wiggleBinSoilTemperature.unit = "degree celsius";
 
   // Set title to "Pressure"
-  helloWormSoilTemperature.title = "Soil Temperature";
+  wiggleBinSoilTemperature.title = "Soil Temperature";
   
   // Set title to "Humidity"
-  helloWormHumidity.title = "Humidity";
+  wiggleBinHumidity.title = "Humidity";
   // Set unit for humidity to %
-  helloWormHumidity.unit = "percent";
+  wiggleBinHumidity.unit = "percent";
   // Set humidity as read only
-  helloWormHumidity.readOnly = "true";
+  wiggleBinHumidity.readOnly = "true";
 
   // Set title to "Soil Moisture"
-  helloWormSoilMoisture.title = "Soil Moisture";
+  wiggleBinSoilMoisture.title = "Soil Moisture";
   // Set unit for humidity to %
-  helloWormSoilMoisture.unit = "percent";
+  wiggleBinSoilMoisture.unit = "percent";
   // Set humidity as read only
-  helloWormSoilMoisture.readOnly = "true";
+  wiggleBinSoilMoisture.readOnly = "true";
   // Set min and max for LevelProperty
-  helloWormSoilMoisture.minimum = 0;
-  helloWormSoilMoisture.maximum = 100;
+  wiggleBinSoilMoisture.minimum = 0;
+  wiggleBinSoilMoisture.maximum = 100;
 
   // Set title to "Heat Index"
-  helloWormHeatIndex.title = "Heat Index";
+  wiggleBinHeatIndex.title = "Heat Index";
 
-  helloWorm.addProperty(&helloWormTemperature);
-  helloWorm.addProperty(&helloWormHumidity);
-  helloWorm.addProperty(&helloWormHeatIndex);
-  helloWorm.addProperty(&helloWormSoilTemperature);
-  helloWorm.addProperty(&helloWormSoilMoisture);
+  wiggleBin.addProperty(&wiggleBinTemperature);
+  wiggleBin.addProperty(&wiggleBinHumidity);
+  wiggleBin.addProperty(&wiggleBinHeatIndex);
+  wiggleBin.addProperty(&wiggleBinSoilTemperature);
+  wiggleBin.addProperty(&wiggleBinSoilMoisture);
  
-  adapter->addDevice(&helloWorm);
+  adapter->addDevice(&wiggleBin);
   adapter->begin();
 
   Serial.println("HTTP server started");
   Serial.print("http://");
   Serial.print(WiFi.localIP());
   Serial.print("/things/");
-  Serial.println(helloWorm.id);
+  Serial.println(wiggleBin.id);
   
   // set the analog reference to 3.3V
   analogReference(EXTERNAL); 
@@ -161,7 +161,7 @@ void setup() {
   sensors.requestTemperatures(); 
   // Use getTempFByIndex to het Fahrenheit
   value.number = sensors.getTempCByIndex(0);
-  helloWormSoilTemperature.setValue(value);
+  wiggleBinSoilTemperature.setValue(value);
 
   // Soil Moisture  
   soilMoisturePercent = map(analogRead(soil_pin), AirValue, WaterValue, 0, 100);
@@ -171,7 +171,7 @@ void setup() {
     soilMoisturePercent = 0;
   }
   value.number = soilMoisturePercent;
-  helloWormSoilMoisture.setValue(value);
+  wiggleBinSoilMoisture.setValue(value);
   
   // DHT Sensor
   // Reading temperature or humidity takes about 250 milliseconds!
@@ -181,18 +181,18 @@ void setup() {
   float t = dht.readTemperature();
 
   value.number = t;
-  helloWormTemperature.setValue(value);
+  wiggleBinTemperature.setValue(value);
   value.number = h;
-  helloWormHumidity.setValue(value);
+  wiggleBinHumidity.setValue(value);
   value.number = dht.computeHeatIndex(t, h, false);
-  helloWormHeatIndex.setValue(value);
+  wiggleBinHeatIndex.setValue(value);
 
   // Send update
   adapter->update();
 
   Serial.println("Update send to WebThings");
   
-  delay(500);
+  delay(50000);
 
   Serial.println("Deep Sleep");
   ESP.deepSleep(1*60*1000000); // 1 minute sleep

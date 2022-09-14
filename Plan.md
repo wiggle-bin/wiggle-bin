@@ -1,4 +1,4 @@
-# Wiggle Bin Plan
+# WiggleBin Plan
 
 - Experiment with different sensors. Sensor above or in the soil?
 - Make a first prototype with bucket and WebThings
