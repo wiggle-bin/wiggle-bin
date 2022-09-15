@@ -66,9 +66,7 @@ Follow the [WebThings start guide](https://webthings.io/docs/gateway-getting-sta
 
 ### Making the Wemos a WebThing
 
-Change the name from `NetworkSettingsSample.h` to `NetworkSettings.h` and fill in your Wifi SSID and password. 
-
-Upload the code from [Code/WiggleBinWebThings](Code/WiggleBinWebThings) to the Wemos.
+Download files from [Code/WiggleBinWebThings](Code/WiggleBinWebThings). Change the name from `NetworkSettingsSample.h` to `NetworkSettings.h` and fill in your Wifi SSID and password. Upload the `WiggleBinWebThings.ino` code to Wemos via Arduino IDE.
 
 Check out the Arduino Serial Monitor. You should see a message like this. 
 
