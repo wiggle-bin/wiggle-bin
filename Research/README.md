@@ -218,6 +218,8 @@ https://emariete.com/en/co2-meter-with-battery-well-done/
 https://randomnerdtutorials.com/power-esp32-esp8266-solar-panels-battery-level-monitoring/
 
 *Re-use phone battery*
+https://www.youtube.com/watch?v=uI1eRy0uBI8
+https://www.youtube.com/watch?v=W8VpNJs6ek0
 https://www.kickstarter.com/projects/betterre/better-re-upcycling-power-pack-reusing-smartphone
 
 Power bank:
@@ -330,3 +332,7 @@ https://munsell.com/about-munsell-color/how-color-notation-works/how-to-read-col
 Resistor or schottky diode BAT43 between D0 and RST
 https://github.com/universam1/iSpindel/issues/59
 https://www.esp8266.com/viewtopic.php?f=13&t=7918&start=24#sthash.9AUQQ49G.dpuf
+
+## High Power LED
+
+https://www.instructables.com/Circuits-for-using-High-Power-LED-s/
