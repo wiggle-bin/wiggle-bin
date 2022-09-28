@@ -14,7 +14,7 @@ This project is in the research and testing phase. Currently we are look at whic
 
 ## License
 
-The WiggleBin is open source hardware. License will be added soon.
+The WiggleBin is open source hardware. Hardware is covered under CERN-OHL-P-2.0 (`LICENSE.CERN-OHL-P-2.0.txt`) license and software under MIT (`LICENSE.MIT.txt`) license.
 
 ## Why?
 
