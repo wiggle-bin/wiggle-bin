@@ -8,13 +8,13 @@ The following is a guide on developing a [vermicomposting](https://en.wikipedia.
 
 ![](Images/WiggleBinV001/Box/WiggleBinPrototype001_Complete.jpg)
 
-This project is in the research and testing phase. Currently we are look at which sensors are usable for this project. See [issues](https://github.com/studiorabota/wiggle-bin/issues) for more info and how to contribute.
+This project is in the research and testing phase. Currently we are looking at which sensors are usable for this project. See [issues](https://github.com/studiorabota/wiggle-bin/issues) for more info and how to contribute.
 
 > This documentation does not go into how to vermicompost. Plenty of other resources are available online.
 
 ## License
 
-The WiggleBin is open source hardware. Hardware is covered under CERN-OHL-S-2.0 (`LICENSE.CERN-OHL-S-2.0.txt`) license and software under GPL-3.0-or-later (`LICENSE.GPL-3.0-or-later`) license.
+The WiggleBin is open source hardware. Hardware is covered under CERN-OHL-S-2.0 (`LICENSE.CERN-OHL-S-2.0.txt`) license and software under GPL-3.0-or-later (`LICENSE.GPL-3.0-or-later.txt`) license.
 
 ## Why?
 
