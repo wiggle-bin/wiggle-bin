@@ -270,6 +270,12 @@ Pros and cons:
 - Worms like red light, a bit less then IR light
 - Can be used with standard phone camera as well
 
+**ESP-CAM:**
+Libraries: https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-mac-and-linux-instructions/
+Installing: https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/
+Issue with Python not being found:
+https://stackoverflow.com/questions/71479069/exec-python-executable-file-not-found-in-path
+
 5v led strip:
 NeoPixel needs capacitator
 https://www.otronic.nl/a-64167598/leds/24-bit-rgb-leds-ws2812b-cirkel-rond-neopixel/
