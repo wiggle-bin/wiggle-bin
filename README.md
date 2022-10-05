@@ -1,14 +1,10 @@
 # WiggleBin
 
-The WiggleBin project is about letting worms communicate with humans. 
-
-> "Thanks for the food mate. It's a bit hot in this bucket.. can you help out?"
-
-The following is a guide on developing a [vermicomposting](https://en.wikipedia.org/wiki/Vermicompost) bin which makes both **worms** and **humans** happy. 
+The goal of WiggleBin is to make an open-source smart [vermicomposting](https://en.wikipedia.org/wiki/Vermicompost) bin which makes both **worms** and **humans** happy.
 
 ![](Images/WiggleBinV001/Box/WiggleBinPrototype001_Complete.jpg)
 
-This project is in the research and testing phase. Currently we are looking at which sensors are usable for this project. See [issues](https://github.com/studiorabota/wiggle-bin/issues) for more info and how to contribute.
+This project is in the research and testing phase. Currently our research involves trying out different sensors. See [issues](https://github.com/studiorabota/wiggle-bin/issues) for more info and how to contribute. Check [milestones](https://github.com/studiorabota/wiggle-bin/milestones) for our future plans.
 
 > This documentation does not go into how to vermicompost. Plenty of other resources are available online.
 
