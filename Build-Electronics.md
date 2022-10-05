@@ -85,7 +85,7 @@ sensor:
       name: "WiggleBin Humidity"
   - platform: dallas
     name: "WiggleBin Soil Temperature"
-    address: "..." # See for getting right address - https://everythingsmarthome.co.uk/building-a-temperature-sensors-for-home-assistant-wemos-d1-mini-with-ds18b20-build-guide/ 
+    address: "..." # Check the following article on finding the address of the DS18B20 - https://everythingsmarthome.co.uk/building-a-temperature-sensors-for-home-assistant-wemos-d1-mini-with-ds18b20-build-guide/#software
   - platform: adc
     name: "WiggleBin Soil Moisture"
     pin: A0
