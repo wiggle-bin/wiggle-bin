@@ -19,9 +19,40 @@ After installing Home Assistant follow the [ESPHome start guide](https://esphome
 
 WiggleBin can be made with or without a camera. This document describes the WiggleBin with a M5Stack camera connected to sensors and actuators over I2C. When no camera is needed a Raspberry Pico W or ESP device can be used instead.
 
-Arduino code is available under [/Code/WiggleBinCentral/](/Code/WiggleBinCentral/)
+This is the YAML config for HomeAssistant/EspHome.
 
-<!-- Add HomeAssistant config to show camera feed -->
+> Not using HomeAssistant? Arduino code is available under [/Code/WiggleBinCentral/](/Code/WiggleBinCentral/)
+
+```yaml
+esphome:
+  name: "WiggleBin"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+i2c:
+  sda: GPIO4
+  scl: GPIO13
+  scan: True
+
+esp32_camera:
+  external_clock:
+    pin: GPIO27
+    frequency: 20MHz
+  i2c_pins:
+    sda: GPIO25
+    scl: GPIO23
+  data_pins: [GPIO32, GPIO35, GPIO34, GPIO5, GPIO39, GPIO18, GPIO36, GPIO19]
+  vsync_pin: GPIO22
+  href_pin: GPIO26
+  pixel_clock_pin: GPIO21
+  reset_pin: GPIO15
+  contrast: 1
+  brightness: 1
+  name: WiggleCamera
+```
 
 ## WiggleBin Sensors
 
@@ -42,7 +73,54 @@ The Attiny chip can be [programmed with an Arduino](https://www.instructables.co
 ![](Design/WiggleBinLight/WiggleBinLight.png)
 Fritzing file is available in [Design/WiggleBinLight/WiggleBinLight.fzz](Design/WiggleBinLight/WiggleBinLight.fzz)
 
-<!-- Add HomeAssistant config to get data -->
+We also need to add the WiggleBin Light as a component to   EspHome. Save the following code in `config/esphome/WiggleBinLightComponent.h` on the Raspberry Pi.
+
+```c++
+#include "esphome.h"
+
+using namespace esphome;
+
+class WiggleBinLight : public Component, public FloatOutput {
+ public:
+  void setup() override {
+    Wire.begin();
+  }
+
+  void write_state(float state) override {
+    // state is the amount this output should be on, from 0.0 to 1.0
+    // we need to convert it to an integer first
+    int value = state * 255;
+    Wire.beginTransmission(13);
+    Wire.write(value);
+    Wire.endTransmission();
+  }
+};
+```
+
+Change the configuration of WiggleBin Central to include this new component. 
+
+```yaml
+esphome:
+  name: "WiggleBin"
+  includes:
+    - WiggleBinLightComponent.h
+
+light:
+  - platform: monochromatic
+    name: "WiggleBin Light"
+    output: wiggleBinLight
+    default_transition_length: 0s
+
+output:
+- platform: custom
+  type: float
+  lambda: |-
+    auto wiggle_bin_light_output = new WiggleBinLight();
+    App.register_component(wiggle_bin_light_output);
+    return {wiggle_bin_light_output};
+  outputs:
+    id: wiggleBinLight
+```
 
 ### WiggleBin Soil Sensor
 
