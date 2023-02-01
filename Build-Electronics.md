@@ -146,6 +146,24 @@ The Attiny chip can be [programmed with an Arduino](https://www.instructables.co
 
 The BME680 sensor is used to measure things like temperature and moisture in the air. The BME680 is available via I2C at address 0x77.
 
+Add the following to the config of your WiggleBin in EspHome.
+
+```yaml
+esphome:
+  name: "WiggleBin"
+
+sensor:
+  - platform: bme680
+    temperature:
+      name: "WiggleBin Air Sensor"
+      oversampling: 16x
+    pressure:
+      name: "WiggleBin Air Pressure"
+    humidity:
+      name: "WiggleBin Air Humidity"
+    address: 0x77
+```
+
 ## WiggleBin Outdoor
 
 Because the WiggleBin will usually be placed outside in the garden or balcony we will eventually add the option to make it battery powered. This chapter is however work in progress.
