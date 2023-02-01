@@ -1,40 +1,65 @@
 # WiggleBin Electronics
 
-## WiggleBin Sensors
+## WiggleBin Central and Sensor Unit
 
 ### Materials
-- [D1 Mini](https://www.tinytronics.nl/shop/en/development-boards/microcontroller-boards/with-wi-fi/d1-mini-esp8266-12f-ch340) or any other ESP8266 device
-- [Capacitive Soil Moisture sensor](https://www.tinytronics.nl/shop/en/sensors/liquid/capacitive-soil-moisture-sensor-module-with-cable). Make sure to buy a good one - https://www.youtube.com/watch?v=IGP38bz-K48.
+- [M5Stack Timer Camera F - Fisheye](https://www.tinytronics.nl/shop/en/platforms-and-systems/m5stack/camera/m5stack-timer-camera-f-fisheye) or Raspberry Pico W or ESP device.
+- [M5STACK FlashLight Unit - AW3641](https://www.tinytronics.nl/shop/en/platforms-and-systems/m5stack/unit/m5stack-flashlight-unit-aw3641) - be aware that worms are sensitive to light
+- Raspberry Pi to run [Home Assistant](https://webthings.io) and collect data
+
+### WiggleBin Home: Showing data
+
+The Raspberry Pi with [Home Assistant](https://webthings.io) installed acts as a home to collect and display sensor info. Home Assistant can also trigger alerts when a sensor passes a certain value, perfect for detecting unhappy worms.
+
+Follow the [Home Assistant start guide](https://www.home-assistant.io/installation/) to set up a Home Assistant station.
+
+After installing Home Assistant follow the [ESPHome start guide](https://esphome.io/guides/getting_started_hassio.html).
+
+### WiggleBin Central: Collecting and sending sensor data
+
+WiggleBin can be made with or without a camera. This document describes the WiggleBin with a M5Stack camera connected to sensors and actuators over I2C. When no camera is needed a Raspberry Pico W or ESP device can be used instead.
+
+Arduino code is available under [/Code/WiggleBinCentral/](/Code/WiggleBinCentral/)
+
+<!-- Add HomeAssistant config to show camera feed -->
+
+## WiggleBin Sensors
+
+### WiggleBin Light
+
+- Attiny45 (Attiny85 should also work)
+- High power LED
+- Q1S8050 NPN Transistor
+- 10kΩ resistor
+- 1kΩ resistor
+
+The WiggleBin Light uses an Attiny45 chip to control an LED via I2C on address 13.
+
+The Attiny chip can be [programmed with an Arduino](https://www.instructables.com/Program-an-ATtiny44458485-with-Arduino/). Arduino code is available under [/Code/WiggleBinLight/](/Code/WiggleBinLight/)
+
+![](Design/WiggleBinLight/WiggleBinLight.png)
+Fritzing file is available in [Design/WiggleBinLight/WiggleBinLight.fzz](Design/WiggleBinLight/WiggleBinLight.fzz)
+
+<!-- Add HomeAssistant config to get data -->
+
+### WiggleBin Soil Moisture and Temperature sensor
+- Attiny45 (Attiny85 should also work)
+- [Capacitive Soil Moisture sensor](https://www.tinytronics.nl/shop/en/sensors/liquid/capacitive-soil-moisture-sensor-module-with-cable). Make sure to buy a [good one](https://www.youtube.com/watch?v=IGP38bz-K48).
 - [1MΩ resistor](https://www.tinytronics.nl/shop/en/components/resistors/resistors/1m%CF%89-resistor)
 - [DS18B20 TO-92 Thermometer](https://www.tinytronics.nl/shop/en/sensors/temperature/ds18b20-to-92-thermometer-temperature-sensor-with-cable-waterproof-high-temperature-1m) (soil temperature)
-- [DS18B20 Adapter](https://www.tinytronics.nl/shop/en/sensors/temperature/ds18b20-adapter) or  4.7kΩ resistor
-- [DHT22 Thermometer](https://www.tinytronics.nl/shop/en/sensors/air/humidity/dht22-thermometer-temperature-and-humidity-sensor-module-with-cables) (temperature and humidity)
+- [DS18B20 Adapter](https://www.tinytronics.nl/shop/en/sensors/temperature/ds18b20-adapter) or 4.7kΩ resistor
 
-### Equipment
+The WiggleBin Light uses an Attiny45 chip to make soil sensor and moisture data available over I2C on address 8.
 
-- Soldering iron
-- DuPont wires
+<!-- ![](Design/HelloWormBreadboardFritzing.png)
 
-### Connecting the sensors
+Fritzing file is available in [Design/HelloWorm.fzz](Design/HelloWorm.fzz) -->
 
-Setup the D1 Mini to be compatible with the Arduino IDE. Follow [these steps](https://github.com/esp8266/Arduino#installing-with-boards-manager).
+The Attiny chip can be [programmed with an Arduino](https://www.instructables.com/Program-an-ATtiny44458485-with-Arduino/). Arduino code is available under [/Code/WiggleBinSoilSensor](/Code/WiggleBinSoilSensor)
 
-Connect the sensors on the breadboard according to the schematic below.
+## WiggleBin Outdoor Unit
 
-![](Design/HelloWormBreadboardFritzing.png)
-
-Fritzing file is available in [Design/HelloWorm.fzz](Design/HelloWorm.fzz)
-
-Here are some real life pictures for reference.
-
-| ![](Images/Electronics/Electronics_Wemos_Close_up.jpg) | ![](Images/Electronics/Electronics_Together.jpg) | ![](Images/Electronics/Electronics_Battery_Temperature.jpg)
-|-|-|-|
-
-Upload the code from [Code/WiggleBinSerial](Code/WiggleBinSerial). You can now view the incoming data from the Arduino Serial Monitor.
-
-### Battery
-
-Because the WiggleBin will usually be placed outside in the garden or balcony we added the option to make it battery powered.
+Because the WiggleBin will usually be placed outside in the garden or balcony we will eventually add the option to make it battery powered. This chapter is however work in progress.
 
 Now batteries are not great for nature (chemicals and such). Therefore we created an experimental adapter which can be 3D printed and holds multiple types of batteries re-used from that old phone in your cabinet.
 
@@ -47,49 +72,3 @@ Wire the wires trough the holes and tighten the battery in with a bolt.
 
 | ![](Images/WiggleBinV001/BatteryHolder/BatteryHolder_Top.jpg) | ![](Images/WiggleBinV001/BatteryHolder/BatteryHolder_Side.jpg) | 
 |-|-|
-
-## WiggleBin Central
-
-To collect data from the WiggleBin Sensors we need a central unit. 
-
-The Raspberry Pi with [Home Assistant](https://webthings.io) installed acts as a central unit to display sensor info. Home Assistant can also trigger alerts when a sensor passes a certain value, perfect for detecting unhappy worms.
-
-### Materials
-- Raspberry Pi
-
-### Home Asisstant on Raspberry Pi
-
-Follow the [Home Assistant start guide](https://www.home-assistant.io/installation/) to set up a Home Assistant station.
-
-After installing Home Assistant follow the [ESPHome start guide](https://esphome.io/guides/getting_started_hassio.html).
-
-This is the config for your WiggleBin Home Assistant sensor. For the DS18B20 sensor you have to [find the address](https://everythingsmarthome.co.uk/building-a-temperature-sensors-for-home-assistant-wemos-d1-mini-with-ds18b20-build-guide/#software) and fill it in under `platform: dallas`.
-
-``` yaml
-deep_sleep:
-  run_duration: 60s
-  sleep_duration: 5min
-
-
-# DS18B20 Temperature Sensor
-dallas:
-  - pin: 4
-  
-sensor:
-  - platform: dht
-    pin: 2
-    model: dht22
-    temperature:
-      name: "WiggleBin Temperature"
-    humidity:
-      name: "WiggleBin Humidity"
-  - platform: dallas
-    name: "WiggleBin Soil Temperature"
-    address: "..." # Check the following article on finding the address of the DS18B20 - https://everythingsmarthome.co.uk/building-a-temperature-sensors-for-home-assistant-wemos-d1-mini-with-ds18b20-build-guide/#software
-  - platform: adc
-    name: "WiggleBin Soil Moisture"
-    pin: A0
-```
-
-
-
