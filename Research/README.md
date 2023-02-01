@@ -270,11 +270,50 @@ Pros and cons:
 - Worms like red light, a bit less then IR light
 - Can be used with standard phone camera as well
 
+**ML learning systems**
+TinyML course:
+https://www.edx.org/course/fundamentals-of-tinyml?index=product_value_experiment_a&queryID=47836da7b2c146e669814323a29a88f7&position=1
+
+Online platforms:
+https://www.edgeimpulse.com
+
+Detect worms:
+https://www.nature.com/articles/s41598-022-12576-9
+
 **ESP-CAM:**
+Steps for README later:
+---
+Arduino:
+https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html (install version 2.x.x)
+Add-on:
+https://randomnerdtutorials.com/installing-the-e
+
+1. Open CameraWebServer example.
+2. Add WiFi credentials
+3. See "Use CameraWebServer of Framework version 2.x.x" in https://www.mischianti.org/2021/09/12/esp32-cam-upgrade-camerawebserver-with-flash-features-2/
+4. Maybe also interesting, see "Set a static IP" https://www.mischianti.org/2021/09/12/esp32-cam-upgrade-camerawebserver-with-flash-features-2/
+5. See on how to upload: https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/
+6. Maybe: Issue with Python not being found: https://stackoverflow.com/questions/71479069/exec-python-executable-file-not-found-in-path
+7. 
+---
+
+Adding ESP-CAM to Home Assistant:
+https://www.youtube.com/watch?v=4CbP47Xqlyw
+
+Home Assistant take snapshot when movement detected:
+https://community.home-assistant.io/t/save-a-camera-snapshot-with-archive-when-motion-is-detected/256606
+
+Home Assistant turn on flash when taking a still:
+https://www.techjunky.nl/2022/02/27/bird-camera-with-esp32-cam-and-esphome/
+https://community.home-assistant.io/t/esp32-cam-how-to-take-a-jpg-with-flash-on/190936/3
+
 Libraries: https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-mac-and-linux-instructions/
 Installing: https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/
 Issue with Python not being found:
 https://stackoverflow.com/questions/71479069/exec-python-executable-file-not-found-in-path
+
+Alternative WebServer with OTA:
+https://github.com/easytarget/esp32-cam-webserver
 
 5v led strip:
 NeoPixel needs capacitator
