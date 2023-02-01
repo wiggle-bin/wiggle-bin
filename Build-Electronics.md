@@ -62,6 +62,12 @@ Fritzing file is available in [Design/WiggleBinSoilSensor/WiggleBinSoilSensor.fz
 
 The Attiny chip can be [programmed with an Arduino](https://www.instructables.com/Program-an-ATtiny44458485-with-Arduino/). Arduino code is available under [/Code/WiggleBinSoilSensor](/Code/WiggleBinSoilSensor)
 
+### WiggleBin Air Sensor
+
+- [BME680 sensor](https://www.tinytronics.nl/shop/en/sensors/air/pressure/bme680-sensor-module-with-level-converter-air-pressure-air-quality-humidity-temperature)
+
+The BME680 sensor is used to measure things like temperature and moisture in the air. The BME680 is available via I2C at address 0x77.
+
 ## WiggleBin Outdoor
 
 Because the WiggleBin will usually be placed outside in the garden or balcony we will eventually add the option to make it battery powered. This chapter is however work in progress.
