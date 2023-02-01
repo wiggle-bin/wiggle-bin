@@ -9,7 +9,7 @@
 
 ### Home Assistant and EspHome
 
-The Raspberry Pi with [Home Assistant](https://webthings.io) installed acts as a home to collect and display sensor info. Home Assistant can also trigger alerts when a sensor passes a certain value, perfect for detecting unhappy worms.
+The Raspberry Pi with [Home Assistant](https://www.home-assistant.io) installed acts as a home to collect and display sensor info. Home Assistant can also trigger alerts when a sensor passes a certain value, perfect for detecting unhappy worms.
 
 Follow the [Home Assistant start guide](https://www.home-assistant.io/installation/) to set up a Home Assistant station.
 
