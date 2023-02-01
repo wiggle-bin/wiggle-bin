@@ -42,18 +42,18 @@ Fritzing file is available in [Design/WiggleBinLight/WiggleBinLight.fzz](Design/
 
 <!-- Add HomeAssistant config to get data -->
 
-### WiggleBin Soil Moisture and Temperature sensor
+### WiggleBin Soil Sensor
 - Attiny45 (Attiny85 should also work)
 - [Capacitive Soil Moisture sensor](https://www.tinytronics.nl/shop/en/sensors/liquid/capacitive-soil-moisture-sensor-module-with-cable). Make sure to buy a [good one](https://www.youtube.com/watch?v=IGP38bz-K48).
 - [1MΩ resistor](https://www.tinytronics.nl/shop/en/components/resistors/resistors/1m%CF%89-resistor)
 - [DS18B20 TO-92 Thermometer](https://www.tinytronics.nl/shop/en/sensors/temperature/ds18b20-to-92-thermometer-temperature-sensor-with-cable-waterproof-high-temperature-1m) (soil temperature)
 - [DS18B20 Adapter](https://www.tinytronics.nl/shop/en/sensors/temperature/ds18b20-adapter) or 4.7kΩ resistor
 
-The WiggleBin Light uses an Attiny45 chip to make soil sensor and moisture data available over I2C on address 8.
+The WiggleBin Soil Sensor uses an Attiny45 chip to make soil sensor and moisture data available over I2C on address 8.
 
-<!-- ![](Design/HelloWormBreadboardFritzing.png)
+![](/Design/WiggleBinSoilSensor/WiggleBinSoilSensor.png)
 
-Fritzing file is available in [Design/HelloWorm.fzz](Design/HelloWorm.fzz) -->
+Fritzing file is available in [Design/WiggleBinSoilSensor/WiggleBinSoilSensor.fzz](/Design/WiggleBinSoilSensor/WiggleBinSoilSensor.fzz)
 
 The Attiny chip can be [programmed with an Arduino](https://www.instructables.com/Program-an-ATtiny44458485-with-Arduino/). Arduino code is available under [/Code/WiggleBinSoilSensor](/Code/WiggleBinSoilSensor)
 
