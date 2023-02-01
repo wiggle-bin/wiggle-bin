@@ -22,6 +22,8 @@ The following are steps to build our second prototype version WiggleBin V0.0.2.
 
 The build for this box is open to variation. The container is a single bin worm bin made from a eurobin. The top has two lids for easy access. Sensors can be placed under the lid (camera and distance). There is a central column in between the lids for electronics (light, soil sensor and air sensor).
 
+3D files for hinges are available in [/Design/Hinges/](/Design/Hinges/).
+
 ![](Images/WiggleBinV001/Box/WiggleBinV002-Open.jpg)
 
 Important thing is to allow for airflow without the worms escaping. This can be done by drilling holes and Micropore tape.
