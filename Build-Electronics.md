@@ -1,13 +1,13 @@
 # WiggleBin Electronics
 
-## WiggleBin Home and Central
+## WiggleBin HomeAssistant
 
 ### Materials
 - [M5Stack Timer Camera F - Fisheye](https://www.tinytronics.nl/shop/en/platforms-and-systems/m5stack/camera/m5stack-timer-camera-f-fisheye) or Raspberry Pico W or ESP device.
 - [M5STACK FlashLight Unit - AW3641](https://www.tinytronics.nl/shop/en/platforms-and-systems/m5stack/unit/m5stack-flashlight-unit-aw3641) - be aware that worms are sensitive to light
 - Raspberry Pi to run [Home Assistant](https://webthings.io) and collect data
 
-### WiggleHome: Showing data
+### Home Assistant and EspHome
 
 The Raspberry Pi with [Home Assistant](https://webthings.io) installed acts as a home to collect and display sensor info. Home Assistant can also trigger alerts when a sensor passes a certain value, perfect for detecting unhappy worms.
 
@@ -15,13 +15,15 @@ Follow the [Home Assistant start guide](https://www.home-assistant.io/installati
 
 After installing Home Assistant follow the [ESPHome start guide](https://esphome.io/guides/getting_started_hassio.html).
 
-### WiggleBin Central: Connecting the WiggleBin sensors with WiggleHome
+### WiggleBin
 
-WiggleBin can be made with or without a camera. This document describes the WiggleBin with a M5Stack camera connected to sensors and actuators over I2C. When no camera is needed a Raspberry Pico W or ESP device can be used instead.
+The core of the WiggleBin is an M5Stack camera which is connected to multiple I2C sensors and actuators.
+
+> WiggleBin can also be made without a camera to save some money. Instead use a Raspberry Pico W or ESP device.
 
 This is the YAML config for HomeAssistant/EspHome.
 
-> Not using HomeAssistant? Arduino code is available under [/Code/WiggleBinCentral/](/Code/WiggleBinCentral/)
+> Not using HomeAssistant? Arduino code is available under [/Code/WiggleBin/](/Code/WiggleBin/)
 
 ```yaml
 esphome:
@@ -97,7 +99,7 @@ class WiggleBinLight : public Component, public FloatOutput {
 };
 ```
 
-Change the configuration of WiggleBin Central to include this new component. 
+Change the configuration of WiggleBin to include this new component. 
 
 ```yaml
 esphome:
