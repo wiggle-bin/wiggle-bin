@@ -28,6 +28,7 @@ void setup() {
 }
 
 void loop() {
+  TinyWireS_stop_check();
 }
 
 void requestEvent()
@@ -36,10 +37,9 @@ void requestEvent()
   soilMoistureValue = analogRead(A2); 
   soilMoisturePercent = map(soilMoistureValue, AirValue, WaterValue, 0, 100);
   soilSensor.sensor.soilMoist = soilMoisturePercent; 
-
+  
   // Soil Temperature
   DS18B20sensor.requestTemp();
-  delay(1000);
   soilSensor.sensor.soilTemp = DS18B20sensor.getTemp();
 
   // Send data over I2C
