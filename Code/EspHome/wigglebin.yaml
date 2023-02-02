@@ -1,0 +1,97 @@
+esphome:
+  name: "wigglebin"
+  includes:
+    - WiggleBinLightComponent.h
+    - WiggleBinSoilSensorComponent.h
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+i2c:
+  sda: GPIO4
+  scl: GPIO13
+  scan: True
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "..."
+    password: "..."
+
+captive_portal:
+
+# WiggleBin Light
+light:
+  - platform: monochromatic
+    name: "WiggleBin Light"
+    output: wiggleBinLight
+    default_transition_length: 0s
+
+output:
+- platform: custom
+  type: float
+  lambda: |-
+    auto wiggle_bin_light_output = new WiggleBinLight();
+    App.register_component(wiggle_bin_light_output);
+    return {wiggle_bin_light_output};
+  outputs:
+    id: wiggleBinLight
+
+sensor:
+  # WiggleBin Air
+  - platform: bme680
+    temperature:
+      name: "WiggleBin Temperature"
+      oversampling: 16x
+    pressure:
+      name: "WiggleBin Pressure"
+    humidity:
+      name: "WiggleBin Humidity"
+    gas_resistance:
+      name: "WiggleBin Gas Resistance"
+    address: 0x77
+    update_interval: 60s
+  # WiggleBin Soil
+  - platform: custom
+    lambda: |-
+      auto wiggle_bin_soil_sensor = new WiggleBinSoilSensor();
+      App.register_component(wiggle_bin_soil_sensor);
+      return {wiggle_bin_soil_sensor->temperature_sensor, wiggle_bin_soil_sensor->moisture_sensor};
+
+    sensors:
+    - name: "WiggleBin Soil Temperature"
+      unit_of_measurement: °C
+      accuracy_decimals: 2
+    - name: "WiggleBin Soil Moisture"
+      unit_of_measurement: "%"
+      accuracy_decimals: 0
+
+# WiggleBin Camera  
+esp32_camera:
+  external_clock:
+    pin: GPIO27
+    frequency: 20MHz
+  i2c_pins:
+    sda: GPIO25
+    scl: GPIO23
+  data_pins: [GPIO32, GPIO35, GPIO34, GPIO5, GPIO39, GPIO18, GPIO36, GPIO19]
+  vsync_pin: GPIO22
+  href_pin: GPIO26
+  pixel_clock_pin: GPIO21
+  reset_pin: GPIO15
+  contrast: 1
+  brightness: 1
+  name: WiggleBin Camera
