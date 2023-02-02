@@ -27,7 +27,7 @@ This is the YAML config for HomeAssistant/EspHome.
 
 ```yaml
 esphome:
-  name: "WiggleBin"
+  name: "wiggle_bin"
 
 esp32:
   board: esp32dev
@@ -75,7 +75,7 @@ The Attiny chip can be [programmed with an Arduino](https://www.instructables.co
 ![](Design/WiggleBinLight/WiggleBinLight.png)
 Fritzing file is available in [Design/WiggleBinLight/WiggleBinLight.fzz](Design/WiggleBinLight/WiggleBinLight.fzz)
 
-We also need to add the WiggleBin Light as a component to   EspHome. Save the following code in `config/esphome/WiggleBinLightComponent.h` on the Raspberry Pi.
+We also need to add the WiggleBin Light as a component to EspHome. Save the following code in `config/esphome/WiggleBinLightComponent.h` on the Raspberry Pi.
 
 ```c++
 #include "esphome.h"
@@ -103,7 +103,7 @@ Change the configuration of WiggleBin to include this new component.
 
 ```yaml
 esphome:
-  name: "WiggleBin"
+  name: "wiggle_bin"
   includes:
     - WiggleBinLightComponent.h
 
@@ -142,6 +142,98 @@ Fritzing file is available in [Design/WiggleBinSoilSensor/WiggleBinSoilSensor.fz
 
 The Attiny chip can be [programmed with an Arduino](https://www.instructables.com/Program-an-ATtiny44458485-with-Arduino/). Arduino code is available under [/Code/WiggleBinSoilSensor](/Code/WiggleBinSoilSensor)
 
+We also need to add the WiggleBin Soil Sensor as a component to EspHome. Save the following code in `config/esphome/WiggleBinSoilSensorComponent.h` on the Raspberry Pi.
+
+```c++
+#include "esphome.h"
+
+using namespace esphome;
+
+typedef struct {
+  byte soilMoist;
+  float soilTemp;
+} SoilSensorData_t;
+
+typedef union FloatToBytes_t 
+{ 
+  float f; 
+  char b[sizeof(float)]; 
+};
+
+#define PACKET_SIZE 5
+
+bool getSoilData(SoilSensorData_t* soilSensor);
+
+class WiggleBinSoilSensor : public PollingComponent, public Sensor {
+ public:
+  WiggleBinSoilSensor() : PollingComponent(15000) {}
+
+  float get_setup_priority() const override { return esphome::setup_priority::BUS; }
+
+  void setup() override {
+    Wire.begin();
+  }
+
+  void write_state(float state) override {
+    SoilSensorData_t soilSensor; 
+    if(getSoilData( &soilSensor )) {
+        publish_state(soilSensor.soilMoist);
+    }
+  }
+};
+
+bool getSoilData(SoilSensorData_t* soilSensor)
+{
+  bool gotI2CPacket = false;  
+  byte index = 0;
+  byte I2C_Packet[PACKET_SIZE];
+
+  Wire.requestFrom(soilSensordResponderAddress, PACKET_SIZE);
+  
+  while (Wire.available()){
+      I2C_Packet[index++] = Wire.read();
+      gotI2CPacket = true;
+  }
+
+  if(gotI2CPacket) {
+      gotI2CPacket = false;
+
+      soilSensor->soilMoist = I2C_Packet[0];
+      
+      FloatToBytes_t soilTemp;
+      soilTemp.b[0] = I2C_Packet[1];
+      soilTemp.b[1] = I2C_Packet[2];
+      soilTemp.b[2] = I2C_Packet[3];
+      soilTemp.b[3] = I2C_Packet[4];
+    
+      soilSensor->soilTemp = soilTemp.f;
+
+      return true;
+   } else { 
+    return false; 
+   }
+}
+```
+
+Change the configuration of WiggleBin to include this new component.
+
+```yaml
+esphome:
+  name: "wiggle_bin"
+  includes:
+    - WiggleBinSoilSensorComponent.h
+
+sensor:
+- platform: custom
+  lambda: |-
+    auto wiggle_bin_soil_sensor = new WiggleBinSoilSensor();
+    App.register_component(wiggle_bin_soil_sensor);
+    return {wiggle_bin_soil_sensor};
+
+  sensors:
+    name: "Wiggle Bin Soil Sensor"
+```
+
 ### WiggleBin Air Sensor
 
 - [BME680 sensor](https://www.tinytronics.nl/shop/en/sensors/air/pressure/bme680-sensor-module-with-level-converter-air-pressure-air-quality-humidity-temperature)
@@ -152,7 +244,7 @@ Add the following to the config of your WiggleBin in EspHome.
 
 ```yaml
 esphome:
-  name: "WiggleBin"
+  name: "wiggle_bin"
 
 sensor:
   - platform: bme680
