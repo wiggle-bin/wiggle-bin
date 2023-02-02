@@ -23,7 +23,7 @@ The core of the WiggleBin is an M5Stack camera which is connected to multiple I2
 
 This is the YAML config for HomeAssistant/EspHome.
 
-> Not using HomeAssistant? Arduino code is available under [/Code/WiggleBin/](/Code/WiggleBin/)
+> Not using HomeAssistant? Arduino code is available under [/Code/Arduino/WiggleBin/](/Code/Arduino/WiggleBin/)
 
 ```yaml
 esphome:
@@ -70,7 +70,7 @@ Having a light in the WiggleBin can be handy for monitoring the worm bin via the
 
 The WiggleBin Light uses an Attiny45 chip to control an LED via I2C on address 13.
 
-The Attiny chip can be [programmed with an Arduino](https://www.instructables.com/Program-an-ATtiny44458485-with-Arduino/). Arduino code is available under [/Code/WiggleBinLight/](/Code/WiggleBinLight/)
+The Attiny chip can be [programmed with an Arduino](https://www.instructables.com/Program-an-ATtiny44458485-with-Arduino/). Arduino code is available under [/Code/Arduino/WiggleBinLight/](/Code/Arduino/WiggleBinLight/)
 
 ![](Design/WiggleBinLight/WiggleBinLight.png)
 Fritzing file is available in [Design/WiggleBinLight/WiggleBinLight.fzz](Design/WiggleBinLight/WiggleBinLight.fzz)
@@ -140,7 +140,7 @@ The WiggleBin Soil Sensor uses an Attiny45 chip to make soil sensor and moisture
 
 Fritzing file is available in [Design/WiggleBinSoilSensor/WiggleBinSoilSensor.fzz](/Design/WiggleBinSoilSensor/WiggleBinSoilSensor.fzz)
 
-The Attiny chip can be [programmed with an Arduino](https://www.instructables.com/Program-an-ATtiny44458485-with-Arduino/). Arduino code is available under [/Code/WiggleBinSoilSensor](/Code/WiggleBinSoilSensor)
+The Attiny chip can be [programmed with an Arduino](https://www.instructables.com/Program-an-ATtiny44458485-with-Arduino/). Arduino code is available under [/Code/Arduino/WiggleBinSoilSensor](/Code/Arduino/WiggleBinSoilSensor)
 
 We also need to add the WiggleBin Soil Sensor as a component to EspHome. Save the following code in `config/esphome/WiggleBinSoilSensorComponent.h` on the Raspberry Pi.
 
