@@ -27,7 +27,7 @@ This is the YAML config for HomeAssistant/EspHome.
 
 ```yaml
 esphome:
-  name: "wiggle_bin"
+  name: "wigglebin"
 
 esp32:
   board: esp32dev
@@ -103,7 +103,7 @@ Change the configuration of WiggleBin to include this new component.
 
 ```yaml
 esphome:
-  name: "wiggle_bin"
+  name: "wigglebin"
   includes:
     - WiggleBinLightComponent.h
 
@@ -219,7 +219,7 @@ Change the configuration of WiggleBin to include this new component.
 
 ```yaml
 esphome:
-  name: "wiggle_bin"
+  name: "wigglebin"
   includes:
     - WiggleBinSoilSensorComponent.h
 
@@ -244,7 +244,7 @@ Add the following to the config of your WiggleBin in EspHome.
 
 ```yaml
 esphome:
-  name: "wiggle_bin"
+  name: "wigglebin"
 
 sensor:
   - platform: bme680
