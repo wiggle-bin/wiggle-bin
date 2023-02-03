@@ -15,10 +15,11 @@ typedef union I2C_Packet_t{
 
 I2C_Packet_t soilSensor;  
 
-const int AirValue = 880;
-const int WaterValue = 480;
+// For calculating percentage
+//const int AirValue = 880;
+//const int WaterValue = 480;
 int soilMoistureValue = 0;
-int soilMoisturePercent = 0;
+//int soilMoisturePercent = 0;
 
 MicroDS18B20<3> DS18B20sensor;
 
@@ -35,8 +36,10 @@ void requestEvent()
 {
   // Soil Moist
   soilMoistureValue = analogRead(A2); 
-  soilMoisturePercent = map(soilMoistureValue, AirValue, WaterValue, 0, 100);
-  soilSensor.sensor.soilMoist = soilMoisturePercent; 
+  // For calculating percentage
+  //  soilMoisturePercent = map(soilMoistureValue, AirValue, WaterValue, 0, 100);
+  //  soilSensor.sensor.soilMoist = soilMoisturePercent; 
+  soilSensor.sensor.soilMoist = soilMoistureValue; 
   
   // Soil Temperature
   DS18B20sensor.requestTemp();
