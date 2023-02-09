@@ -4,7 +4,7 @@
 
 ### Materials
 - [Raspberry Pico W](https://www.tinytronics.nl/shop/en/development-boards/microcontroller-boards/with-wi-fi/raspberry-pi-pico-w-rp2040) or ESP device
-- Raspberry Pi to run [Home Assistant](https://webthings.io) and collect data
+- Raspberry Pi to run [Home Assistant](https://www.home-assistant.io) and collect data
 
 ### Home Assistant and EspHome
 
