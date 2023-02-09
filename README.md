@@ -2,7 +2,7 @@
 
 The goal of WiggleBin is to make an open-source smart [vermicomposting](https://en.wikipedia.org/wiki/Vermicompost) bin which makes both **worms** and **humans** happy.
 
-![](Images/WiggleBinV001/Box/WiggleBinV002.jpg)
+![](Images/WiggleBin/Box/WiggleBinV002.jpg)
 
 This project is in the research and testing phase. Currently our research involves trying out different sensors. See [issues](https://github.com/studiorabota/wiggle-bin/issues) for more info and how to contribute. Check [milestones](https://github.com/studiorabota/wiggle-bin/milestones) for our future plans.
 

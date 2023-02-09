@@ -201,12 +201,12 @@ Because the WiggleMonitor will usually be placed outside in the garden or balcon
 
 Now batteries are not great for nature (chemicals and such). Therefore we created an experimental adapter which can be 3D printed and holds multiple types of batteries re-used from that old phone in your cabinet.
 
-The 3D files for this can be found in `Design/WiggleMonitorV001/BatteryHolder`.
+The 3D files for this can be found in `Design/WiggleBin/BatteryHolder`.
 
 Wire the wires trough the holes and tighten the battery in with a bolt.
 
 > **Warning**
 > Batteries can be dangerous. Please be careful and only proceed when you have enough electronics experience. Otherwise use a battery supply off the shelf of an electronics store or a 5V wall adapter.
 
-| ![](Images/WiggleMonitorV001/BatteryHolder/BatteryHolder_Top.jpg) | ![](Images/WiggleMonitorV001/BatteryHolder/BatteryHolder_Side.jpg) | 
+| ![](Images/WiggleBin/BatteryHolder/BatteryHolder_Top.jpg) | ![](Images/WiggleBin/BatteryHolder/BatteryHolder_Side.jpg) | 
 |-|-|
