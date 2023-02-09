@@ -2,6 +2,9 @@
 
 The following are steps to build our second prototype version WiggleBin V0.0.2.
 
+3D files for Raspberry Pico holder with breadboard are available in 
+
+
 ![](Images/WiggleBin/Box/WiggleBinV002.jpg)
 
 ## Box
@@ -22,7 +25,7 @@ The following are steps to build our second prototype version WiggleBin V0.0.2.
 
 The build for this box is open to variation. The container is a single bin worm bin made from a eurobin. The top has two lids for easy access. Sensors can be placed under the lid (camera and distance). There is a central column in between the lids for electronics (light, soil sensor and air sensor).
 
-3D files for hinges are available in [/Design/Hinges/](/Design/Hinges/).
+3D files for Raspberry Pico holder with breadboard are available in [/Design/PicoHolder/](/Design/PicoHolder/)
 
 ![](Images/WiggleBin/Box/WiggleBinV002-Open.jpg)
 
@@ -55,19 +58,31 @@ We came up with the idea of re-using a film roll case. Which provides a more ele
 - Pliers
 - Soldering station
 
+3D files for Raspberry Pico holder with breadboard are available in 
+
+
 ![](Images/WiggleBin/SoilSensor/SoilSensorWaterproof_Tools.jpg)
 
 Print the bottle cap with a 3D printer. You can download the 3D files in `Design/SoilSensorWaterProofCap`.
 
+3D files for Raspberry Pico holder with breadboard are available in 
+
+
 ![](Images/WiggleBin/SoilSensor/SoilSensorWaterproof_3D_print.jpg)
 
 Take off the white connector from the soil sensor with some pliers. This will reveal additional holes. 
+
+3D files for Raspberry Pico holder with breadboard are available in 
+
 
 ![](Images/WiggleBin/SoilSensor/SoilSensorWaterproof_3D_Pliers.jpg)
 
 Place the sensor and wire into the 3D printed cap. The 3D print is designed to be super tight around the sensor and wire. Use a soft hammer to apply some pressure and kindly jam the sensor in.
 
 Solder the wire to the sensor using the 3 holes in at the back of the sensor. 
+
+3D files for Raspberry Pico holder with breadboard are available in 
+
 
 | ![](Images/WiggleBin/SoilSensor/SoilSensorWaterproof_Sensor_In_Cap_Front.jpg) | ![](Images/WiggleBin/SoilSensor/SoilSensorWaterproof_Sensor_In_Cap_Back.jpg) | 
 |-|-|
