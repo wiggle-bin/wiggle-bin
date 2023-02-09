@@ -2,9 +2,6 @@
 
 The following are steps to build our second prototype version WiggleBin V0.0.2.
 
-3D files for Raspberry Pico holder with breadboard are available in 
-
-
 ![](Images/WiggleBin/Box/WiggleBinV002.jpg)
 
 ## Box
@@ -23,7 +20,7 @@ The following are steps to build our second prototype version WiggleBin V0.0.2.
 
 > We don't provide detailed documentation for this build yet as it is a prototype. The next version will contain a Lasercut and 3D file 🤞.
 
-The build for this box is open to variation. The container is a single bin worm bin made from a eurobin. The top has two lids for easy access. Sensors can be placed under the lid (camera and distance). There is a central column in between the lids for electronics (light, soil sensor and air sensor).
+The build for this box is open to variation. The container is a single bin worm bin made from a eurobin. The top has two lids for easy access. Sensors can be placed under the lid (camera and flash light). There is a central column in between the lids for electronics (light, soil sensor and air sensor).
 
 3D files for Raspberry Pico holder with breadboard are available in [/Design/PicoHolder/](/Design/PicoHolder/)
 
