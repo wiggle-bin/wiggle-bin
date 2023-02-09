@@ -29,6 +29,13 @@ The WiggleMonitor Soil Sensor measures the soil temperature and moisture.
 - [DS18B20 TO-92 Thermometer](https://www.tinytronics.nl/shop/en/sensors/temperature/ds18b20-to-92-thermometer-temperature-sensor-with-cable-waterproof-high-temperature-1m) (soil temperature)
 - [DS18B20 Adapter](https://www.tinytronics.nl/shop/en/sensors/temperature/ds18b20-adapter) or 4.7kΩ resistor
 
+| Pico | Sensor
+--- | --- | 
+| GPIO26 | Capacitive Soil Moisture sensor
+| GPIO6 | DS18B20
+| 3V3(Out) | 
+| GND | 
+
 ![](/Design/WiggleBinSoilSensor/WiggleBinSoilSensor.png)
 Fritzing file is available in [Design/WiggleBinSoilSensor/WiggleBinSoilSensor.fzz](Design/WiggleBinSoilSensor/WiggleBinSoilSensor.fzz)
 
@@ -76,8 +83,9 @@ Having a light in the WiggleMonitor can be handy for monitoring the worm bin via
 
 | Pico | 
 --- | 
-| GP27 |
-
+| GPIO27 |
+| 3V3(Out) | 
+| GND | 
 
 ![](Design/WiggleBinLight/WiggleBinLight.png)
 Fritzing file is available in [Design/WiggleBinLight/WiggleBinLight.fzz](Design/WiggleBinLight/WiggleBinLight.fzz)
