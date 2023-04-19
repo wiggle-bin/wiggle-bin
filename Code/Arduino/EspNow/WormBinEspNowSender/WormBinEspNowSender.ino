@@ -20,6 +20,8 @@ struct_message myData;
 unsigned long lastTime = 0;  
 unsigned long timerDelay = 2000;  // send readings timer
 
+int soilMoistureValue = 0;
+
 // Callback when data is sent
 void OnDataSent(uint8_t *mac_addr, uint8_t sendStatus) {
   Serial.print("Last Packet Send Status: ");
@@ -56,10 +58,12 @@ void setup() {
 void loop() {  
   if ((millis() - lastTime) > timerDelay) {
     sensor.requestTemp();
-    delay(1000);
     
+    delay(1000);
     myData.soilTemp = sensor.getTemp();
-    myData.soilMoisture = 70.23;
+
+    soilMoistureValue = analogRead(A0); 
+    myData.soilMoisture = soilMoistureValue;
 
     // Send message via ESP-NOW
     esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));

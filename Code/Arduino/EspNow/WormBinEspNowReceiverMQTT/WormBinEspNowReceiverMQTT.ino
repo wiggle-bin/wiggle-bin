@@ -1,6 +1,19 @@
+// https://how2electronics.com/interface-capacitive-soil-moisture-sensor-arduino/
+// on calibration - https://makersportal.com/blog/2020/5/26/capacitive-soil-moisture-calibration-with-arduino
+
 #include <ESP8266WiFi.h>
 #include <espnow.h>
 #include <TM1637TinyDisplay.h>
+
+const int MIN_TEMP_WORM_BIN = 15;
+const int MAX_TEMP_WORM_BIN = 30;
+const int MIN_MOIST_PERCENTAGE_WORM_BIN = 60;
+const int MAX_MOIST_PERCENTAGE_WORM_BIN = 85;
+
+const int AIR_VALUE = 750;   // Value when sensor is dry
+const int WATER_VALUE = 480;  // Value when sensor emerged in water
+int soilMoistureValue = 0;
+int soilMoisturePercent = 0;
 
 // Structure to receive data
 typedef struct struct_message {
@@ -41,12 +54,39 @@ void setup() {
 
 /* ############################ Loop ############################################# */
 
-void loop() {}
+void loop() {
+  // TEMP message
+  display.showNumber(myData.soilTemp);
+  delay(2000);
+  
+  if (myData.soilTemp > MAX_TEMP_WORM_BIN) {
+    display.showString("HOT");
+  } else if (myData.soilTemp < MIN_TEMP_WORM_BIN) {
+    display.showString("COLD");
+  } else {
+    display.showString("LOVE");
+  }
+  delay(2000);
+  
+  // MOIST message
+  Serial.println(myData.soilMoisture);
+  soilMoisturePercent = map(myData.soilMoisture, AIR_VALUE, WATER_VALUE, 0, 100);
+  display.showNumber(soilMoisturePercent);
+  delay(2000);
+  
+  if (soilMoisturePercent > MAX_MOIST_PERCENTAGE_WORM_BIN) {
+    display.showString("WET");
+  } else if (soilMoisturePercent < MIN_MOIST_PERCENTAGE_WORM_BIN) {
+    display.showString("DRY");
+  } else {
+    display.showString("LOVE");
+  }
+  delay(2000);
+}
 
 void OnDataRecv(uint8_t *mac_addr, uint8_t *incomingData, uint8_t len) {
   memcpy(&myData, incomingData, sizeof(myData));
-  display.showNumber(myData.soilTemp);
- 
+  
   Serial.write(incomingData, len);
   Serial.write('\n');
 }

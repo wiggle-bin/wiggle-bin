@@ -78,7 +78,6 @@ void setup() {
 void loop() {
   mqttReconnect();
   mqttClient.loop();
-//Serial.println("hello");
 
   if (Serial.available()) {
     received_msg_length = Serial.readBytesUntil('\n', incomingData, sizeof(incomingData));
@@ -99,6 +98,8 @@ void sensorMessageOverMQTT() {
 
   debugln("SoilTemp");
   debugln(msg.soilTemp);
+  debugln("SoilMoisture");
+  debugln(msg.soilMoisture);
 
   sensor["data"]["soilTemp"] = (float)msg.soilTemp;
   sensor["data"]["soilMoisture"] = (float)msg.soilMoisture;
