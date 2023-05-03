@@ -10,7 +10,7 @@ const int MAX_TEMP_WORM_BIN = 30;
 const int MIN_MOIST_PERCENTAGE_WORM_BIN = 60;
 const int MAX_MOIST_PERCENTAGE_WORM_BIN = 85;
 
-const int AIR_VALUE = 750;   // Value when sensor is dry
+const int AIR_VALUE = 3985;   // Value when sensor is dry
 const int WATER_VALUE = 480;  // Value when sensor emerged in water
 int soilMoistureValue = 0;
 int soilMoisturePercent = 0;
@@ -69,6 +69,7 @@ void loop() {
   delay(2000);
   
   // MOIST message
+  Serial.println("soilMoisture");
   Serial.println(myData.soilMoisture);
   soilMoisturePercent = map(myData.soilMoisture, AIR_VALUE, WATER_VALUE, 0, 100);
   display.showNumber(soilMoisturePercent);
