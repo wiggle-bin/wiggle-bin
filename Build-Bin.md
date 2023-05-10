@@ -40,9 +40,11 @@ We also made some prototypes out of other materials.
 
 *Acrylic*
 
+![](Images/WiggleBin/WiggleBin/WiggleBinAcrylic.jpeg)
+
 Acrylic has the advantage of being to able to view the inside of the worm bin. The disadvantage is that acrylic traps moist in the worm bin. 
 
-![](Images/WiggleBin/WiggleBin/WiggleBinAcrylic.jpeg)
+![](Images/WiggleBin/WiggleBin/WiggleBinAcrylicWorm.jpeg)
 
 Another interesting side effect is that the tracks of worms on the lid become visible.
 
@@ -50,7 +52,7 @@ Another interesting side effect is that the tracks of worms on the lid become vi
 
 *Cedar wood*
 
-Cedar wood has many properties which make it great for a worm bin. This type is light and durable.
+Cedar wood has many properties which make it great for a worm bin. This type of wood is light and durable.
 
 ![](Images/WiggleBin/WiggleBin/WiggleBinCedarTop.jpeg)
 ![](Images/WiggleBin/WiggleBin/WiggleBinCedar.jpeg)
