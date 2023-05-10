@@ -3,7 +3,7 @@
 #include <esp_now.h>
 
 #define uS_TO_S_FACTOR 1000000  /* Conversion factor for micro seconds to seconds */
-#define TIME_TO_SLEEP  600      /* Time ESP32 will go to sleep (in seconds) */
+#define TIME_TO_SLEEP  5      /* Time ESP32 will go to sleep (in seconds) */
 
 #define SOIL_MOISTURE_PIN A0
 #define SOIL_TEMP_PIN 1 
@@ -95,7 +95,7 @@ void setup() {
     Serial.println("Error sending the data");
   }
 
-  delay(1000);
+  delay(2000);
   esp_deep_sleep_start();
 }
  
