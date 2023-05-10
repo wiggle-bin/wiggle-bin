@@ -1,6 +1,6 @@
 # WiggleBin Electronics
 
-![Alt text](Images/WiggleBin/Box/WiggleBinV002-BottomLid.jpg)
+![Alt text](Images/WiggleBin/Box/V002/WiggleBinV002-BottomLid.jpg)
 
 ## WiggleCentral and Monitor
 
@@ -22,7 +22,7 @@ The core of the WiggleMonitor is an Raspberry Pico W which is connected to multi
 
 This complete YAML config is available at [Code/EspHome/wigglemonitor.yam](Code/EspHome/wigglemonitor.yaml).
 
-![Alt text](Images/WiggleBin/Box/WiggleBinV002-MonitorElectronics.jpg)
+![Alt text](Images/WiggleBin/Box/V002/WiggleBinV002-MonitorElectronics.jpg)
 
 ### WiggleMonitor Soil Sensor
 
@@ -146,7 +146,7 @@ sensor:
 - [M5Stack Timer Camera F - Fisheye](https://www.tinytronics.nl/shop/en/platforms-and-systems/m5stack/camera/m5stack-timer-camera-f-fisheye) or Raspberry Pico W or ESP device
 - [M5STACK FlashLight Unit - AW3641](https://www.tinytronics.nl/shop/en/platforms-and-systems/m5stack/unit/m5stack-flashlight-unit-aw3641)
 
-![Alt text](Images/WiggleBin/Box/WiggleBinV002-Open.jpg)
+![Alt text](Images/WiggleBin/Box/V002/WiggleBinV002-Open.jpg)
 
 To film our worms in action we use a M5Stack camera. 
 

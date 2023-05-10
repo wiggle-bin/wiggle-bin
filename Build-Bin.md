@@ -2,7 +2,7 @@
 
 The following are steps to build our second prototype version WiggleBin V0.0.2.
 
-![](Images/WiggleBin/Box/WiggleBinV002.jpg)
+![](Images/WiggleBin/Box/V002/WiggleBinV002.jpg)
 
 ## Box
 
@@ -24,7 +24,7 @@ The build for this box is open to variation. The container is a single bin worm 
 
 3D files for Raspberry Pico holder with breadboard are available in [/Design/PicoHolder/](/Design/PicoHolder/)
 
-![](Images/WiggleBin/Box/WiggleBinV002-Open.jpg)
+![](Images/WiggleBin/Box/V002/WiggleBinV002-Open.jpg)
 
 Important thing is to allow for airflow without the worms escaping. This can be done by drilling holes and Micropore tape.
 
