@@ -32,3 +32,7 @@ The Wiggle project contains 3 sub-projects.
 1. WiggleBin: Easy to make and maintain [worm bin](Build-Bin.md)
 2. WiggleAlert: [Alert system](Build-Electronics.md) for when worms are unhappy 
 3. WiggleResearch: Small desktop unit for controlled experiments
+
+## Thanks!
+
+Many thanks to [Open Hardware Academy](https://www.openhardware.academy/01_Welcome.html) and [Stadslab Rotterdam](https://stadslabrotterdam.nl/) for making this build possible.
