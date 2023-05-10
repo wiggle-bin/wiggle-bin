@@ -10,8 +10,8 @@ const int MAX_TEMP_WORM_BIN = 30;
 const int MIN_MOIST_PERCENTAGE_WORM_BIN = 60;
 const int MAX_MOIST_PERCENTAGE_WORM_BIN = 85;
 
-const int AIR_VALUE = 3985;   // Value when sensor is dry
-const int WATER_VALUE = 480;  // Value when sensor emerged in water
+const int AIR_VALUE = 4000;   // Value when sensor is dry
+const int WATER_VALUE = 2100;  // Value when sensor emerged in water
 int soilMoistureValue = 0;
 int soilMoisturePercent = 0;
 
