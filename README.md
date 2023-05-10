@@ -2,7 +2,7 @@
 
 The goal of WiggleBin is to make an open-source smart [vermicomposting](https://en.wikipedia.org/wiki/Vermicompost) bin which makes both **worms** and **humans** happy.
 
-![](Images/WiggleBin/Box/V002/WiggleBinV002.jpg)
+![](Images/WiggleBin/WiggleResearch/WiggleResearchUnit.jpeg)
 
 This project is in the research and testing phase. Currently our research involves trying out different sensors. See [issues](https://github.com/studiorabota/wiggle-bin/issues) for more info and how to contribute. Check [milestones](https://github.com/studiorabota/wiggle-bin/milestones) for our future plans.
 
@@ -27,14 +27,8 @@ Maintaining a worm bin is not without complications. Worms can "run" away, overh
 
 ## How?
 
-We have two manuals. 
-1. Setting up the [electronics](Build-Electronics.md)
-2. Building the [worm bin](Build-Bin.md)
+The Wiggle project contains 3 sub-projects.
 
-After following both manuals you will have build a complete smart home for your worms.
-
-Do you already have a worm bin? 
-- It is also possible to implement the [electronics](Build-Electronics.md) in your existing worm bin.
-
-Electronics make you nervous? 
-- Feel free to skip the electronics and build the [worm bin](Build-Bin.md). You will still benefit from it's handy design.
+1. WiggleBin: Easy to make and maintain [worm bin](Build-Bin.md)
+2. WiggleAlert: [Alert system](Build-Electronics.md) for when worms are unhappy 
+3. WiggleResearch: Small desktop unit for controlled experiments
