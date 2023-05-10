@@ -24,6 +24,8 @@ Vector file for lasercutting can be found in `Design/LaserCutLid`.
 
 The lid has been oiled four times with Danish oil (with 4 hours in between) in the hope to make the Birch wood more durable and stain resistant. The oil can be applied with (paper) cloth. Make sure to read the safety instruction when using oil, since it can be a fire hazard.
 
+![](Images/WiggleBin/WiggleBin/WiggleBinOil.jpeg)
+
 ### Improvements
 
 - Using waterproof multiplex
