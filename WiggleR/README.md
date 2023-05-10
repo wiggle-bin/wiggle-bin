@@ -87,4 +87,15 @@ Birch wood has been oiled on the outside with cooked lineseed oil and danish oil
 
 #### Soil Moisture Sensor
 
-[Installation instuctions](https://piddlerintheroot.com/capacitive-soil-moisture-sensor-v2-0/)
+| [RP Zero]((https://pinout.xyz/pinout/io_pi_zero)) | ADS1115
+--- | --- | 
+| Pin 2 - 5v Power | VCC
+| Pin 6 - Ground | GND
+| Pin 3 - GPIO 2 | SDA
+| Pin 5 - GPIO 3 | SCL
+
+| Soil Moisture sensor | ADS1115
+--- | --- | 
+| AOUT | A0
+
+[Installation instuctions](https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/python-circuitpython)
