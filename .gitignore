@@ -1,2 +1,7 @@
 .DS_Store
 NetworkSettings.h
+__pycache__
+WiggleR/Code/DetectWorms/input/*
+WiggleR/Code/DetectWorms/outputs/*
+!WiggleR/Code/DetectWorms/input/.gitkeep
+!WiggleR/Code/DetectWorms/outputs/.gitkeep 
