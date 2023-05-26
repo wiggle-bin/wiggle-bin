@@ -1,18 +1,18 @@
 from __future__ import print_function
 import cv2 as cv
 import argparse
+import time
+
 parser = argparse.ArgumentParser(description='This program shows how to use background subtraction methods provided by \
                                               OpenCV. You can process both videos and images.')
-parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.', default='./input/worms.mov')
+parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.', default='./input/wormsRedCleaned.mov')
 parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).', default='MOG2')
 args = parser.parse_args()
 
 video = cv.VideoCapture(0)
 
-if args.algo == 'MOG2':
-    backSub = cv.createBackgroundSubtractorMOG2()
-else:
-    backSub = cv.createBackgroundSubtractorKNN()
+# backSub = cv.createBackgroundSubtractorMOG2() # better on small particles 
+backSub = cv.createBackgroundSubtractorKNN() # better on selecting worms
 capture = cv.VideoCapture(cv.samples.findFileOrKeep(args.input))
 
 frame_width = int(capture.get(3))
@@ -21,10 +21,12 @@ frame_height = int(capture.get(4))
 size = (frame_width, frame_height)
 
 out = cv.VideoWriter(
-    './outputs/worms.mov',
+    './outputs/Day2-255-255-255.mov',
     cv.VideoWriter_fourcc(*'mp4v'), 10, 
     (frame_width, frame_height)
 )
+
+frameRate = int(capture.get(cv.CAP_PROP_FPS))
 
 if not capture.isOpened():
     print('Unable to open: ' + args.input)
@@ -34,22 +36,24 @@ while True:
     if frame is None:
         break
     
-    fgMask = backSub.apply(frame)
+    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    fgMask = backSub.apply(gray)
+    blur = cv.GaussianBlur(fgMask, (11, 11), 0)
+    canny = cv.Canny(blur, 30, 150, 3)
+    dilated = cv.dilate(canny, (1, 1), iterations=0)
     
+    (cnt, hierarchy) = cv.findContours(dilated.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+    cv.drawContours(frame, cnt, -1, (255, 0, 0), 1)
     
-    cv.rectangle(frame, (10, 2), (100,20), (255,255,255), -1)
-    cv.putText(frame, str(capture.get(cv.CAP_PROP_POS_FRAMES)), (15, 15),
-               cv.FONT_HERSHEY_SIMPLEX, 0.5 , (0,0,0))
+    cv.imshow('Contours', dilated)
+    cv.imshow('Worm Contours', frame)
     
+    time.sleep(1/frameRate) 
     
-    cv.imshow('Frame', frame)
-    cv.imshow('FG Mask', fgMask)
-    
-    frame = cv.cvtColor(fgMask, cv.COLOR_GRAY2RGB)
     out.write(frame)
 
     keyboard = cv.waitKey(30)
-    if keyboard == 'q' or keyboard == 27:
+    if keyboard == ord('q') or keyboard == 27:
         break
 
 capture.release()
