@@ -4,6 +4,7 @@ from datetime import datetime
 from datetime import timedelta
 from Camera import diff
 import os
+import base64
 
 app = FastAPI()
 
@@ -40,7 +41,8 @@ def get_image(beforeDate: str = yesterday, afterDate: str = now):
 
 @app.get("/diff/")
 async def root(beforeDate: str = yesterday, afterDate: str = now):
-    (score, _) = diff.diffImage()
+    (score, img) = diff.diffImage()
     return {
-        "score": score
+        "score": score,
+        "image": base64.b64encode(img)
     }
