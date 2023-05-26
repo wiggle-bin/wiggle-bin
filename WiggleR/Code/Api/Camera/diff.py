@@ -9,8 +9,6 @@ def diffImage(
 ):
     beforePath = str(Path(__file__).parent / f"input/images/{beforeDate}.jpg")
     afterPath = str(Path(__file__).parent / f"input/images/{afterDate}.jpg")
-    writePath = str(Path(__file__).parent / f"output/diff/{beforeDate}_{afterDate}.jpg")
-    imagePath = f"output/diff/{beforeDate}_{afterDate}.jpg"
 
     before = cv2.imread(beforePath)
     after = cv2.imread(afterPath)

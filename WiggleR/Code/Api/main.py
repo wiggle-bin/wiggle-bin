@@ -35,7 +35,8 @@ def images():
 )
 def get_image(beforeDate: str = yesterday, afterDate: str = now):
     (score, img) = diff.diffImage()
-    return Response(content=img.tobytes(), media_type="image/jpg")
+    headers = {"score": str(score)}
+    return Response(content=img.tobytes(), media_type="image/jpg", headers=headers)
 
 @app.get("/diff/")
 async def root(beforeDate: str = yesterday, afterDate: str = now):
