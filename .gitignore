@@ -1,11 +1,11 @@
 .DS_Store
 NetworkSettings.h
 __pycache__
-WiggleR/Code/Camera/input/*
-WiggleR/Code/Camera/outputs/*
-!WiggleR/Code/Camera/input/.gitkeep
-!WiggleR/Code/Camera/outputs/.gitkeep 
-WiggleR/Code/Camera/output/*
-WiggleR/Code/Camera/data/*
+WiggleR/Code/Api/Camera/input/*
+WiggleR/Code/Api/Camera/outputs/*
+!WiggleR/Code/Api/Camera/input/.gitkeep
+!WiggleR/Code/Api/Camera/outputs/.gitkeep 
+WiggleR/Code/Api/Camera/output/*
+WiggleR/Code/Api/Camera/data/*
 WiggleR/Code/Microphone/input
 .ipynb_checkpoints
