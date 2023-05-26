@@ -5,3 +5,7 @@ WiggleR/Code/DetectWorms/input/*
 WiggleR/Code/DetectWorms/outputs/*
 !WiggleR/Code/DetectWorms/input/.gitkeep
 !WiggleR/Code/DetectWorms/outputs/.gitkeep 
+WiggleR/Code/DetectWorms/output/*
+WiggleR/Code/DetectWorms/data/*
+WiggleR/Code/Microphone/input
+.ipynb_checkpoints
