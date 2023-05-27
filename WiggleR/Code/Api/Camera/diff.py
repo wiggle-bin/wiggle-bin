@@ -4,11 +4,11 @@ import numpy as np
 from pathlib import Path
 
 def diffImage(
-    beforeDate = '2023-05-11_1946', 
-    afterDate = '2023-05-11_2000'
+    beforeImage: str, 
+    afterImage: str
 ):
-    beforePath = str(Path(__file__).parent / f"input/images/{beforeDate}.jpg")
-    afterPath = str(Path(__file__).parent / f"input/images/{afterDate}.jpg")
+    beforePath = str(Path(__file__).parent / f"input/images/{beforeImage}.jpg")
+    afterPath = str(Path(__file__).parent / f"input/images/{afterImage}.jpg")
 
     before = cv2.imread(beforePath)
     after = cv2.imread(afterPath)
