@@ -1,10 +1,12 @@
 from fastapi import FastAPI, Response
 from fastapi.staticfiles import StaticFiles
+from fastapi import Header
 from datetime import datetime
 from datetime import timedelta
 from Camera import diff
 import os
 import base64
+from pathlib import Path
 
 app = FastAPI()
 
@@ -13,6 +15,7 @@ async def root():
     return {"message": "Hello Worm"}
 
 app.mount("/image", StaticFiles(directory="./Camera/input/images"), name="image")
+app.mount("/video", StaticFiles(directory="./Camera/output/video"), name="video")
 
 out = []
 for filename in sorted(os.listdir("./Camera/input/images")):
@@ -55,3 +58,21 @@ async def root(
         "score": score,
         "image": base64.b64encode(img)
     }
+
+CHUNK_SIZE = 1024*768
+video_path = Path(__file__).parent / f"Camera/output/video/test.mov"
+
+@app.get("/video")
+async def video_endpoint(range: str = Header(None)):
+    start, end = range.replace("bytes=", "").split("-")
+    start = int(start)
+    end = int(end) if end else start + CHUNK_SIZE
+    with open(video_path, "rb") as video:
+        video.seek(start)
+        data = video.read(end - start)
+        filesize = str(video_path.stat().st_size)
+        headers = {
+            'Content-Range': f'bytes {str(start)}-{str(end)}/{filesize}',
+            'Accept-Ranges': 'bytes'
+        }
+        return Response(data, status_code=206, headers=headers, media_type="video/mov")
