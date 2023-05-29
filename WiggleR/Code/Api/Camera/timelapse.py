@@ -7,6 +7,8 @@ def createTimelapse(
     startTime: str = "2023-05-11_1949", 
     endTime: str = "2023-05-11_1956"
 ):
+    videoPath = Path(__file__).parent / f"output/video/{startTime}-{endTime}.mp4"
+
     allImages = sorted(glob.glob(str(Path(__file__).parent / f"input/images/*.jpg")))
 
     startIndex = [idx for idx, s in enumerate(allImages) if startTime in s][0]
@@ -22,15 +24,17 @@ def createTimelapse(
         img_array.append(img)
     
     out = cv2.VideoWriter(
-        f"output/video/{startTime}-{endTime}.mov",
+        str(videoPath),
         cv2.VideoWriter_fourcc('a','v','c','1'), 25, 
         size
     )
     
     for i in range(len(img_array)):
         out.write(img_array[i])
+
     out.release()
 
+    return videoPath
 
 if __name__ == '__main__':
     createTimelapse()

@@ -3,7 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi import Header
 from datetime import datetime
 from datetime import timedelta
-from Camera import diff
+from Camera import diff, timelapse
 import os
 import base64
 from pathlib import Path
@@ -30,8 +30,8 @@ for filename in sorted(os.listdir("./Camera/input/images")):
 def images():
     return out
 
-defaultBeforeImage = out[0]['name'] if len(out) < 16 else out[-15]['name']
-defaultAfterImage = out[-1]['name']
+defaultStartTime = out[0]['name'] if len(out) < 16 else out[-15]['name']
+defaultEndTime = out[-1]['name']
 
 @app.get(
     "/diff/image/",  
@@ -41,8 +41,8 @@ defaultAfterImage = out[-1]['name']
     response_class=Response
 )
 def get_image(
-    beforeImage: str = defaultBeforeImage, 
-    afterImage: str = defaultAfterImage
+    beforeImage: str = defaultStartTime, 
+    afterImage: str = defaultEndTime
 ):
     (score, img) = diff.diffImage(beforeImage, afterImage)
     headers = {"score": str(score)}
@@ -50,8 +50,8 @@ def get_image(
 
 @app.get("/diff/")
 async def root(
-    beforeImage: str = defaultBeforeImage, 
-    afterImage: str = defaultAfterImage
+    beforeImage: str = defaultStartTime, 
+    afterImage: str = defaultEndTime
 ):
     (score, img) = diff.diffImage(beforeImage, afterImage)
     return {
@@ -60,10 +60,15 @@ async def root(
     }
 
 CHUNK_SIZE = 1024*768
-video_path = Path(__file__).parent / f"Camera/output/video/test.mov"
+video_path = Path(__file__).parent / f"Camera/output/video/2023-05-11_1949-2023-05-11_1950.mp4"
 
 @app.get("/video")
-async def video_endpoint(range: str = Header(None)):
+async def video_endpoint(
+    range: str = Header(None),
+    startTime: str = defaultStartTime, 
+    endTime: str = defaultEndTime
+):
+    video_path = timelapse.createTimelapse(startTime, endTime)
     start, end = range.replace("bytes=", "").split("-")
     start = int(start)
     end = int(end) if end else start + CHUNK_SIZE
@@ -75,4 +80,4 @@ async def video_endpoint(range: str = Header(None)):
             'Content-Range': f'bytes {str(start)}-{str(end)}/{filesize}',
             'Accept-Ranges': 'bytes'
         }
-        return Response(data, status_code=206, headers=headers, media_type="video/mov")
+        return Response(data, status_code=206, headers=headers, media_type="video/mp4")
