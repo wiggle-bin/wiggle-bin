@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { start, end } from '../store/store';
+	import { start, end, showVideo, showContours } from '../store/store';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import ImageSelector from '../lib/ImageSelector.svelte';
@@ -7,6 +7,8 @@
 	let openImageSelector: Boolean | 'start' | 'end' = false;
 	let startTime = '';
 	let endTime = '';
+	let videoActive: boolean = false;
+	let contoursActive: boolean = false;
 
 	function close() {
 		openImageSelector = false;
@@ -15,9 +17,15 @@
 	function scheduleStart() {
 		openImageSelector = 'start';
 	}
-
 	function scheduleEnd() {
 		openImageSelector = 'end';
+	}
+
+	function onChangeVideo(e: { target: { active: boolean } }) {
+		showVideo.update((show) => (show = e.target.active));
+	}
+	function onChangeContours(e: { target: { active: boolean } }) {
+		showContours.update((show) => (show = e.target.active));
 	}
 
 	function imageSelected(e: CustomEvent) {
@@ -37,6 +45,8 @@
 
 	start.subscribe((start) => (startTime = start));
 	end.subscribe((end) => (endTime = end));
+	showVideo.subscribe((show) => (videoActive = show));
+	showContours.subscribe((show) => (contoursActive = show));
 </script>
 
 <kor-page>
@@ -50,6 +60,8 @@
 		<div class="actionsBar">
 			<kor-button icon="schedule" label={startTime || 'Start'} on:click={scheduleStart} />
 			<kor-button icon="schedule" label={endTime || 'End'} on:click={scheduleEnd} />
+			<kor-toggle label="Video" on:active-changed={onChangeVideo} active={videoActive ? true : null}></kor-toggle>
+			<kor-toggle label="Contours" on:active-changed={onChangeContours}  active={contoursActive ? true : null}></kor-toggle>
 		</div>
 		{#if openImageSelector}
 			<ImageSelector on:select={imageSelected} on:close={close} />

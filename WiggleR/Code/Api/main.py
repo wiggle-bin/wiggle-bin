@@ -72,16 +72,21 @@ async def root(
         "image": base64.b64encode(img)
     }
 
-CHUNK_SIZE = 1024*768
-video_path = Path(__file__).parent / f"Camera/output/video/2023-05-11_1949-2023-05-11_1950.mp4"
-
 @app.get("/video")
 async def video_endpoint(
     range: str = Header(None),
     startTime: str = defaultStartTime, 
-    endTime: str = defaultEndTime
+    endTime: str = defaultEndTime,
+    showVideo: bool = True,
+    showContours: bool = False
 ):
-    video_path = timelapse.createTimelapse(startTime, endTime)
+    (video_path, (width, height)) = timelapse.createTimelapse(
+        startTime, 
+        endTime, 
+        showVideo, 
+        showContours
+    )
+    CHUNK_SIZE = width*height
     start, end = range.replace("bytes=", "").split("-")
     start = int(start)
     end = int(end) if end else start + CHUNK_SIZE
