@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi import Header
+from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 from datetime import timedelta
 from Camera import diff, timelapse
@@ -8,7 +9,19 @@ import os
 import base64
 from pathlib import Path
 
+origins = [
+    "http://localhost:5173",
+]
+
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():
@@ -23,7 +36,7 @@ for filename in sorted(os.listdir("./Camera/input/images")):
     if ext == '.jpg':
         out.append({
             "name": name,
-            "path": "/static/" + filename
+            "path": "/image/" + filename
         })
 
 @app.get("/images")
