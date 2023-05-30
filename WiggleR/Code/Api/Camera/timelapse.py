@@ -9,7 +9,7 @@ backSub = cv2.createBackgroundSubtractorKNN()
 def createTimelapse(
     startTime: str = "2023-05-11_1949", 
     endTime: str = "2023-05-11_1956",
-    showVideo: bool = True,
+    showThresh: bool = True,
     showContours: bool = False
 ):
     videoPath = Path(__file__).parent / f"output/video/{startTime}-{endTime}.mp4"
@@ -27,23 +27,29 @@ def createTimelapse(
     img_array = []
     for filename in images:
         img = cv2.imread(filename)
+        img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        ret, th = cv2.threshold(img_gray, 58, 255, cv2.THRESH_TOZERO_INV)
         height, width, layers = img.shape
         size = (width,height)
 
         (dilated, cnt) = getContours(img)
 
-        if showVideo and showContours:
-            cv2.drawContours(img, cnt, -1, (255, 0, 0), 1)
-            img_array.append(img)
+        if showThresh and showContours:
+            cv2.drawContours(th, cnt, -1, (255, 0, 0), 1)
+            img_array.append(th)
         elif showContours:
-            img_array.append(dilated)
+            cv2.drawContours(img_gray, cnt, -1, (255, 0, 0), 1)
+            img_array.append(img_gray)
+        elif showThresh:
+            img_array.append(th)
         else:
-            img_array.append(img)
+            img_array.append(img_gray)
     
     out = cv2.VideoWriter(
         str(videoPath),
         cv2.VideoWriter_fourcc('a','v','c','1'), 25, 
-        size
+        size,
+        isColor = False
     )
     
     for i in range(len(img_array)):

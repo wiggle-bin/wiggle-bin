@@ -77,13 +77,13 @@ async def video_endpoint(
     range: str = Header(None),
     startTime: str = defaultStartTime, 
     endTime: str = defaultEndTime,
-    showVideo: bool = True,
+    showThresh: bool = True,
     showContours: bool = False
 ):
     (video_path, (width, height)) = timelapse.createTimelapse(
         startTime, 
         endTime, 
-        showVideo, 
+        showThresh, 
         showContours
     )
     CHUNK_SIZE = width*height
