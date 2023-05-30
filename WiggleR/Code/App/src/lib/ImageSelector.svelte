@@ -1,18 +1,18 @@
-<script>
-	import { createEventDispatcher } from 'svelte'
-	
-	const dispatch = createEventDispatcher()
+<script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 
-	function visibleChanged(e) {
+	const dispatch = createEventDispatcher();
+
+	function visibleChanged(e: { target: { visible: boolean } }) {
 		if (e.target.visible) {
-			dispatch('open')
+			dispatch('open');
 		} else {
-			dispatch('close')
+			dispatch('close');
 		}
 	}
 
 	async function getImages() {
-		const res = await fetch('http://localhost:8000/images')
+		const res = await fetch('http://localhost:8000/images');
 
 		const images = await res.json();
 
@@ -26,10 +26,18 @@
 	$: allImages = getImages();
 </script>
 
-<kor-modal visible={true} id="modal" on:visible-changed={visibleChanged} width="80%" height="80%" icon="image" label="Select Image">
+<kor-modal
+	visible={true}
+	id="modal"
+	on:visible-changed={visibleChanged}
+	width="500px"
+	height="80%"
+	icon="image"
+	label="Select Image"
+>
 	<kor-table>
 		<kor-table-row slot="header">
-			<kor-table-cell head grid-cols="6">Start</kor-table-cell>
+			<kor-table-cell head grid-cols="6">Image</kor-table-cell>
 			<kor-table-cell head grid-cols="18">Name</kor-table-cell>
 		</kor-table-row>
 		{#await allImages then images}
