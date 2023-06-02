@@ -1,22 +1,16 @@
-<kor-card label="Images" style="width: 100%">
-	<kor-table>
-		<kor-table-row slot="header">
-			<kor-table-cell head grid-cols="12">12 grid-cols</kor-table-cell>
-			<kor-table-cell head grid-cols="6">6 grid-cols</kor-table-cell>
-			<kor-table-cell head grid-cols="3">3 grid-cols</kor-table-cell>
-			<kor-table-cell head grid-cols="3">3 grid-cols</kor-table-cell>
-		</kor-table-row>
-		<kor-table-row>
-			<kor-table-cell grid-cols="12">12 grid-cols</kor-table-cell>
-			<kor-table-cell grid-cols="6">6 grid-cols</kor-table-cell>
-			<kor-table-cell grid-cols="3">3 grid-cols</kor-table-cell>
-			<kor-table-cell grid-cols="3">3 grid-cols</kor-table-cell>
-		</kor-table-row>
-		<kor-table-row>
-			<kor-table-cell grid-cols="12">12 grid-cols</kor-table-cell>
-			<kor-table-cell grid-cols="6">6 grid-cols</kor-table-cell>
-			<kor-table-cell grid-cols="3">3 grid-cols</kor-table-cell>
-			<kor-table-cell grid-cols="3">3 grid-cols</kor-table-cell>
-		</kor-table-row>
-	</kor-table>
-</kor-card>
+<script lang="ts">
+	import ContourPlot  from '../lib/plots/ContourPlot.svelte'
+	import TimelapseVideo  from '../lib/TimelapseVideo.svelte'
+</script>
+
+<kor-grid>
+	<kor-card grid-cols="6" grid-rows="1">
+		<ContourPlot />
+	</kor-card>
+	<kor-card label="" grid-cols="6" grid-rows="2">
+		<TimelapseVideo />
+	</kor-card>
+	<kor-card  label="" grid-cols="6" grid-rows="1">
+		<ContourPlot />
+	</kor-card>
+</kor-grid>
