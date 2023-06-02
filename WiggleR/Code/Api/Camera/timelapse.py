@@ -18,13 +18,15 @@ def createTimelapse(
         os.remove(videoPath)
 
     allImages = sorted(glob.glob(str(Path(__file__).parent / f"input/images/*.jpg")))
-
+    
     startIndex = [idx for idx, s in enumerate(allImages) if startTime in s][0]
     endIndex = [idx for idx, s in enumerate(allImages) if endTime in s][0]
 
     images = allImages[startIndex:endIndex + 1]
+    dates = [os.path.splitext(os.path.basename(path))[0] for path in images]
 
     img_array = []
+    contoursArea = []
     for filename in images:
         img = cv2.imread(filename)
         img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -33,6 +35,7 @@ def createTimelapse(
         size = (width,height)
 
         (dilated, cnt) = getContours(img)
+        contoursArea.append(getContoursArea(cnt))
 
         if showThresh and showContours:
             cv2.drawContours(th, cnt, -1, (255, 0, 0), 1)
@@ -57,7 +60,7 @@ def createTimelapse(
 
     out.release()
 
-    return (videoPath, (width, height))
+    return (videoPath, (width, height), dates, contoursArea)
 
 def getContours(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -67,6 +70,13 @@ def getContours(img):
     dilated = cv2.dilate(canny, (1, 1), iterations=0)
     (cnt, hierarchy) = cv2.findContours(dilated.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     return (dilated, cnt)
+
+def getContoursArea(cnt):
+    totalCntArea = 0
+    for item in cnt: 
+        area = cv2.contourArea(item)
+        totalCntArea += area
+    return totalCntArea
 
 if __name__ == '__main__':
     createTimelapse()

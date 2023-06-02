@@ -72,6 +72,20 @@ async def root(
         "image": base64.b64encode(img)
     }
 
+@app.get("/contours/")
+async def root(
+    startTime: str = defaultStartTime, 
+    endTime: str = defaultEndTime,
+):
+    (_, _, dates, contours) = timelapse.createTimelapse(
+        startTime, 
+        endTime
+    )
+    return {
+        "contourArea": contours,
+        "dates": dates
+    }
+
 @app.get("/video")
 async def video_endpoint(
     range: str = Header(None),
@@ -80,7 +94,7 @@ async def video_endpoint(
     showThresh: bool = True,
     showContours: bool = False
 ):
-    (video_path, (width, height)) = timelapse.createTimelapse(
+    (video_path, (width, height), _, _) = timelapse.createTimelapse(
         startTime, 
         endTime, 
         showThresh, 
