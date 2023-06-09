@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import ImageSelector from '../lib/ImageSelector.svelte';
+	import logo from '$lib/assets/wiggleLogo.svg';
 
 	let openImageSelector: Boolean | 'start' | 'end' = false;
 	let startTime = '';
@@ -38,8 +39,8 @@
 	end.subscribe((end) => (endTime = end));
 </script>
 
-<kor-page>
-	<kor-app-bar slot="top" label="WiggleR">
+<kor-page padding="var(--spacing-s)">
+	<kor-app-bar slot="top" logo={logo}>
 		<kor-tabs>
 			<kor-tab-item active on:click={() => goto('/')} label="Dashboard" />
 			<kor-tab-item on:click={() => goto('/timelapse')} label="Timelapse" />
@@ -48,8 +49,8 @@
 		</kor-tabs>
 
 		<div class="actionsBar" slot="functions">
-			<kor-button icon="schedule" label={startTime || 'Start'} on:click={scheduleStart} />
-			<kor-button icon="schedule" label={endTime || 'End'} on:click={scheduleEnd} />
+			<kor-button class="double-button left" icon="schedule" label={startTime || 'Start'} on:click={scheduleStart} />
+			<kor-button class="double-button right" icon="schedule" label={endTime || 'End'} on:click={scheduleEnd} />
 		</div>
 		{#if openImageSelector}
 			<ImageSelector on:select={imageSelected} on:close={close} />
@@ -62,6 +63,19 @@
 <style>
 	.actionsBar {
 		display: flex;
-		gap: 10px;
+	}
+	.double-button {
+		color: white;
+		border-bottom: black solid 1px;
+	}
+	.double-button.left {
+		border-right: 1px solid white;
+		border-radius: 7px 0 0 7px;
+	}
+	.double-button.right {
+		border-radius: 0  7px 7px 0;
+	}
+	.double-button:hover {
+		border-bottom: white solid 1px;
 	}
 </style>

@@ -3,14 +3,18 @@
 	import TimelapseVideo  from '../lib/TimelapseVideo.svelte'
 </script>
 
-<kor-grid>
+<kor-grid spacing="s">
 	<kor-card grid-cols="6" grid-rows="1">
-		<ContourPlot />
-	</kor-card>
-	<kor-card label="" grid-cols="6" grid-rows="2">
 		<TimelapseVideo />
 	</kor-card>
+	<kor-card grid-cols="6" grid-rows="1">
+		<TimelapseVideo />
+	</kor-card>
+	<kor-card grid-cols="6" grid-rows="1">
+		<ContourPlot type="bar" />
+	</kor-card>
+
 	<kor-card  label="" grid-cols="6" grid-rows="1">
-		<ContourPlot />
+		<ContourPlot type="scatter" />
 	</kor-card>
 </kor-grid>
