@@ -6,6 +6,13 @@
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 		<style>
+			:root {
+				--main-color:#201566;
+				--main-color-darker: #1a0f58;
+			}
+			html, body {
+				
+			}
 			html, body, kor-page {
 			  /* --neutral-1: 255, 255, 255;
 			  --neutral-2: 0 ,0, 0;
@@ -14,8 +21,8 @@
 			  --text-3: rgba(255, 255, 255, .2);
 			  --header-1: bold 16px/24px 'Monda';
 			  --border-radius: 8px;*/
-			  --accent-1: 31, 119, 180; 
-			  --accent-1b: 31, 119, 180;
+			  --accent-1: 26, 15, 88; 
+			  --accent-1b: 26, 15, 88;
 			  /* --base-0: 19, 21, 22;
 			  --base-1: 13, 15, 16;
 			  --base-2: 16, 18, 19;
@@ -27,7 +34,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Monda&amp;display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Monda&amp;display=swap" rel="stylesheet">
 	</head>
-	<body theme="light" data-sveltekit-preload-data="hover">
+	<body theme="dark" data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

@@ -4,7 +4,8 @@ import glob
 from pathlib import Path
 import os
 
-backSub = cv2.createBackgroundSubtractorKNN() 
+backSub = cv2.createBackgroundSubtractorMOG2() # better on small particles 
+# backSub = cv2.createBackgroundSubtractorKNN() 
 
 def createTimelapse(
     startTime: str = "2023-05-11_1949", 
@@ -26,16 +27,26 @@ def createTimelapse(
     dates = [os.path.splitext(os.path.basename(path))[0] for path in images]
 
     img_array = []
-    contoursArea = []
+    totalContourArea = []
+    contoursAmount = []
+    contourAreas = []
+    contourLocations = []
+
     for filename in images:
         img = cv2.imread(filename)
         img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        ret, th = cv2.threshold(img_gray, 58, 255, cv2.THRESH_TOZERO_INV)
+        ret, th = cv2.threshold(img_gray, 75, 255, cv2.THRESH_TOZERO_INV)
         height, width, layers = img.shape
         size = (width,height)
 
         (dilated, cnt) = getContours(img)
-        contoursArea.append(getContoursArea(cnt))
+
+        # Extract data
+        filteredContours = tuple(filter(checkArea, cnt))
+        totalContourArea.append(getTotalContourArea(filteredContours))
+        contoursAmount.append(len(filteredContours))
+        contourAreas.append(getContourAreas(filteredContours))
+        contourLocations.append(getContourCentroid(filteredContours))
 
         if showThresh and showContours:
             cv2.drawContours(th, cnt, -1, (255, 0, 0), 1)
@@ -60,7 +71,7 @@ def createTimelapse(
 
     out.release()
 
-    return (videoPath, (width, height), dates, contoursArea)
+    return (videoPath, (width, height), dates, (contourAreas, totalContourArea, contoursAmount, contourLocations))
 
 def getContours(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -71,12 +82,44 @@ def getContours(img):
     (cnt, hierarchy) = cv2.findContours(dilated.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     return (dilated, cnt)
 
-def getContoursArea(cnt):
+def checkArea(cnt):
+    area = cv2.contourArea(cnt)
+    if area > 1:
+        return True
+    else: 
+        return False
+
+def getTotalContourArea(cnt):
     totalCntArea = 0
     for item in cnt: 
         area = cv2.contourArea(item)
         totalCntArea += area
     return totalCntArea
+
+def getContourAreas(cnt):
+    areas = []
+    for item in cnt: 
+        area = cv2.contourArea(item)
+        areas.append(area)
+    return areas
+
+def getContourCentroid(cnt):
+    xy = []
+    for item in cnt: 
+        M = cv2.moments(item)
+        cx = int(M['m10']/M['m00'])
+        cy = int(M['m01']/M['m00'])
+        area = cv2.contourArea(item)
+        xy.append((cx, cy, area))
+    return xy
+
+def getContourRectCenter(cnt):
+    xy = []
+    for item in cnt: 
+        x,y,w,h = cv2.boundingRect(item)
+        center = (x,y)
+        xy.append(center)
+    return xy
 
 if __name__ == '__main__':
     createTimelapse()

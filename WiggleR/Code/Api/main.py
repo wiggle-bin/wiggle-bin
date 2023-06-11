@@ -77,12 +77,16 @@ async def root(
     startTime: str = defaultStartTime, 
     endTime: str = defaultEndTime,
 ):
-    (_, _, dates, contours) = timelapse.createTimelapse(
+    (_, _, dates, (contourAreas, totalContourArea, contoursAmount, contourLocations)) = timelapse.createTimelapse(
         startTime, 
         endTime
     )
+
     return {
-        "contourArea": contours,
+        "contourLocations": contourLocations,
+        "totalContourArea": totalContourArea,
+        "contourAmount": contoursAmount,
+        "contourAreas": contourAreas,
         "dates": dates
     }
 

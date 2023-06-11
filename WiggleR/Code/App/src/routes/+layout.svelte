@@ -39,43 +39,50 @@
 	end.subscribe((end) => (endTime = end));
 </script>
 
-<kor-page padding="var(--spacing-s)">
-	<kor-app-bar slot="top" logo={logo}>
-		<kor-tabs>
-			<kor-tab-item active on:click={() => goto('/')} label="Dashboard" />
-			<kor-tab-item on:click={() => goto('/timelapse')} label="Timelapse" />
-			<kor-tab-item on:click={() => goto('/timeline')} label="Timeline" />
-			<kor-tab-item on:click={() => goto('/test')} label="Test" />
-		</kor-tabs>
+<div class="wiggle-logo">
+	<img src={logo} height="100%" alt="Wiggle Logo" width="40px">
+</div>
 
-		<div class="actionsBar" slot="functions">
-			<kor-button class="double-button left" icon="schedule" label={startTime || 'Start'} on:click={scheduleStart} />
-			<kor-button class="double-button right" icon="schedule" label={endTime || 'End'} on:click={scheduleEnd} />
-		</div>
-		{#if openImageSelector}
-			<ImageSelector on:select={imageSelected} on:close={close} />
-		{/if}
-	</kor-app-bar>
+<div class="actionsBar">
+	<kor-button class="double-button left" label={"24 hours"} on:click={scheduleStart} />
+	<!-- <kor-button class="double-button left" icon="schedule" label={startTime || 'Start'} on:click={scheduleStart} /> -->
+	<!-- <kor-button class="double-button right" icon="schedule" label={endTime || 'End'} on:click={scheduleEnd} /> -->
+</div>
+{#if openImageSelector}
+	<ImageSelector on:select={imageSelected} on:close={close} />
+{/if}
 
-	<slot />
-</kor-page>
+<slot></slot>
 
 <style>
+	.wiggle-logo {
+		position: fixed;
+		top: 20px;
+		left: 20px;
+		padding: 20px;
+		padding-bottom: 10px;
+		padding-right: 25px;
+		background-color: var(--main-color-darker);
+		border: 1px solid white;
+	}
+	.wiggle-logo:hover {
+		background-color: #4F4511;
+	}
 	.actionsBar {
 		display: flex;
+		position: fixed;
+		right: 30px;
+		top: 20px;
+		z-index: 30;
 	}
 	.double-button {
-		color: white;
-		border-bottom: black solid 1px;
-	}
-	.double-button.left {
-		border-right: 1px solid white;
-		border-radius: 7px 0 0 7px;
-	}
-	.double-button.right {
-		border-radius: 0  7px 7px 0;
+		color: #201566;
+		border-radius: 0;
+		background-color: white;
+		border: 3px solid var(--main-color-darker);
 	}
 	.double-button:hover {
-		border-bottom: white solid 1px;
+		background-color: #ffffff;
+		color: black;
 	}
 </style>

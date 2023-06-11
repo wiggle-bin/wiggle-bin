@@ -19,21 +19,35 @@
 	}
 </script>
 
-
-{#key [startTime, endTime, threshActive, contoursActive]}
-    <video width="100%" height="100%" controls>
-        <source
-            src={`http://localhost:8000/video?startTime=${startTime}&endTime=${endTime}&showThresh=${threshActive}&showContours=${contoursActive}`}
-            type="video/mp4"
-        />
-    </video>
-{/key}
-<div class="video-settings">
-    <kor-toggle grid-cols="2" label="Thresh" on:active-changed={onChangeThresh} active={threshActive ? true : null}></kor-toggle>
-    <kor-toggle grid-cols="2" label="Contours" on:active-changed={onChangeContours}  active={contoursActive ? true : null}></kor-toggle>
+<div>
+	{#key [startTime, endTime, threshActive, contoursActive]}
+		<video width="1024" height="768" controls>
+			<source
+				src={`http://localhost:8000/video?startTime=${startTime}&endTime=${endTime}&showThresh=${threshActive}&showContours=${contoursActive}`}
+				type="video/mp4"
+			/>
+		</video>
+	{/key}
+	<!-- <div class="video-settings">
+		<kor-toggle
+			grid-cols="2"
+			label="Thresh"
+			on:active-changed={onChangeThresh}
+			active={threshActive ? true : null}
+		/>
+		<kor-toggle
+			grid-cols="2"
+			label="Contours"
+			on:active-changed={onChangeContours}
+			active={contoursActive ? true : null}
+		/>
+	</div> -->
 </div>
 
 <style>
+	video {
+		border: 10px solid var(--main-color-darker);
+	}
 	.video-settings {
 		display: flex;
 		gap: 10px;
