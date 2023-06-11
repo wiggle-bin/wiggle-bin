@@ -33,6 +33,7 @@
 	}
 	.plots {
 		display: grid;
+		grid-template-rows: 100vh;
 		grid-auto-rows: 50vh;
 		overflow-y: scroll;
 	}
