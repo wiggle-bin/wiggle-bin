@@ -3,7 +3,7 @@
 	import { start, end } from '../../store/store';
 	import { getContoursData } from './data.svelte';
 
-	function random_rgba() {
+	function random_rgb() {
 		var o = Math.round,
 			r = Math.random,
 			s = 255;
@@ -27,7 +27,7 @@
 			type: 'scatter',
 			mode: 'markers',
 			marker: {
-				color: data.contourLocations.map((frame: any) => frame.map(random_rgba)).flat(),
+				color: data.contourLocations.map((frame: any) => { const rgb = random_rgb(); return frame.map(() => rgb) }).flat(),
 				size: data.contourLocations.flat().map(([, , area]: [Number, Number, Number]) => area)
 			}
 		};
