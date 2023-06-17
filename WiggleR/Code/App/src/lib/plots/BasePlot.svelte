@@ -4,7 +4,9 @@
     export let trace: Plotly.Data | undefined;
     export let title: String;
     export let xaxisTitle: String;
+    export let xaxisRange: [number, number] | null = null;
     export let yaxisTitle: String;
+    export let yaxisRange: [number, number] | null = null;;
 
 	let plotContainer: HTMLElement;
 
@@ -31,11 +33,13 @@
 			paper_bgcolor: 'white',
             xaxis: {
                 title: `<b>${xaxisTitle}</b>`,
-                color: 'black'
+                color: 'black',
+                range: xaxisRange
             },
             yaxis: {
                 title: `<b>${yaxisTitle}</b>`,
-                color: 'black'
+                color: 'black',
+                range: yaxisRange
             },
             title: {
                 text: `<b>${title}</b>`

@@ -35,5 +35,5 @@
 </script>
 
 {#if trace}
-	<BasePlot {trace} title="Contour Locations" xaxisTitle="X" yaxisTitle="Y" />
+	<BasePlot {trace} title="Contour Locations" xaxisTitle="X" yaxisTitle="Y" xaxisRange={[0, 1024]} yaxisRange={[768, 0]} />
 {/if}

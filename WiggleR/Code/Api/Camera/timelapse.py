@@ -46,19 +46,26 @@ def createTimelapse(
         totalContourArea.append(getTotalContourArea(filteredContours))
         contoursAmount.append(len(filteredContours))
         contourAreas.append(getContourAreas(filteredContours))
-        contourLocations.append(getContourCentroid(filteredContours))
+
+        circles = getCircles(filteredContours)
+        contourLocations.append(circles)
 
         if showThresh and showContours:
             cv2.drawContours(th, cnt, -1, (255, 0, 0), 1)
             img_array.append(th)
         elif showContours:
             cv2.drawContours(img_gray, cnt, -1, (255, 0, 0), 1)
+
+            for i in circles:
+                color = (255, 0, 0)
+                cv2.circle(img_gray, (int(i[0]), int(i[1])), int(i[2]), color, 1)
+
             img_array.append(img_gray)
         elif showThresh:
             img_array.append(th)
         else:
             img_array.append(img_gray)
-    
+
     out = cv2.VideoWriter(
         str(videoPath),
         cv2.VideoWriter_fourcc('a','v','c','1'), 25, 
@@ -70,6 +77,8 @@ def createTimelapse(
         out.write(img_array[i])
 
     out.release()
+
+    print(contourLocations[1][1])
 
     return (videoPath, (width, height), dates, (contourAreas, totalContourArea, contoursAmount, contourLocations))
 
@@ -88,6 +97,16 @@ def checkArea(cnt):
         return True
     else: 
         return False
+    
+def getCircles(contours):
+    circles = []
+
+    for i, c in enumerate(contours):
+        contours_poly = cv2.approxPolyDP(c, 3, True)
+        xy, radius = cv2.minEnclosingCircle(contours_poly)
+        circles.append((xy[0], xy[1], radius))
+
+    return circles
 
 def getTotalContourArea(cnt):
     totalCntArea = 0
@@ -109,8 +128,7 @@ def getContourCentroid(cnt):
         M = cv2.moments(item)
         cx = int(M['m10']/M['m00'])
         cy = int(M['m01']/M['m00'])
-        area = cv2.contourArea(item)
-        xy.append((cx, cy, area))
+        xy.append((cx, cy))
     return xy
 
 def getContourRectCenter(cnt):
