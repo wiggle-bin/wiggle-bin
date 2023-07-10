@@ -11,7 +11,7 @@ def read_root():
 @app.get("/images")
 def images():
     out = []
-    for filename in sorted(os.listdir("/images")):
+    for filename in sorted(os.listdir("./images")):
         name, ext = os.path.splitext(filename)
         if ext == '.jpg':
             out.append({
@@ -23,6 +23,7 @@ def images():
 @app.get("/picture")
 def images():
     now = datetime.now()
-    dt_string = now.strftime("%M-%H-%Y-%m-%d")
-    os.system(f"libcamera-jpeg --width 1024 --height 768 --nopreview -t 1 -o './images/{dt_string}.jpg'")
-    return {"picture": "output.jpg"}
+    filename = now.strftime("%Y-%m-%d-%H-%M")
+    path = f"./images/{filename}.jpg"
+    os.system(f"libcamera-jpeg --width 1024 --height 768 --nopreview -t 1 -o {path}")
+    return {"picture": path}

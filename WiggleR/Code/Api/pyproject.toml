@@ -1,0 +1,19 @@
+[project]
+name = "wiggler_studiorabota"
+version = "0.0.2"
+authors = [
+  { name="Vincent Kranendonk" },
+]
+description = "WiggleR - Desktop research unit for making controlled experiments"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+wiggler = "wiggler.cli:main"
+
+[project.urls]
+"Homepage" = "https://github.com/studiorabota/wiggle-bin"

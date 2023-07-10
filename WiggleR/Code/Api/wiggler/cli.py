@@ -10,4 +10,4 @@ def main():
     args = parser.parse_args()
   
     if args.server:
-        os.system(f"uvicorn wigglerapi.main:app --reload --host 0.0.0.0")
+        os.system(f"uvicorn wiggler.main:app --reload --host 0.0.0.0")
