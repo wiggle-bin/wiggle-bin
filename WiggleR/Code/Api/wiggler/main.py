@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from crontab import CronTab
 from datetime import datetime
 import os
 
@@ -32,3 +33,13 @@ def images():
     filePath = f"{IMG_FOLDER}/{fileName}.jpg"
     os.system(f"libcamera-jpeg --width 1024 --height 768 --nopreview -t 1 -o {filePath}")
     return {"picture": f"image/{fileName}.jpg"}
+
+
+@app.get("/schedule_picture/{minutes}")
+def images(minutes: int = 1):
+    cron = CronTab(user=os.getlogin())
+    cron.remove_all(comment='take picture')
+    job = cron.new(command='curl localhost:8000/take_picture', comment='take picture')
+    job.minute.every(minutes)
+    cron.write()
+    return {"minutes": minutes}
