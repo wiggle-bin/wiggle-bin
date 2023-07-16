@@ -11,11 +11,11 @@ def main():
                         help='start api server')
 
     service = parser.add_argument_group("service")
-    service.add_argument('--service-install', 
+    service.add_argument('--service-install',
                          action='store_true',
                          help='install wiggler service to start api server on boot')
-    service.add_argument('--service', 
-                         const='status', 
+    service.add_argument('--service',
+                         const='status',
                          nargs='?',
                          choices=['stop', 'start',
                                   'status', 'disable', 'enable'],
@@ -36,6 +36,7 @@ def main():
         os.system(f'systemctl --user {args.service} wiggler.service')
     else:
         print("run wiggler -h for options")
+
 
 if __name__ == '__main__':
     main()
