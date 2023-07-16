@@ -1,6 +1,6 @@
 [project]
 name = "wiggler_studiorabota"
-version = "0.0.7"
+version = "0.0.21"
 authors = [
   { name="Vincent Kranendonk" },
 ]

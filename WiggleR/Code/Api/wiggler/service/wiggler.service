@@ -1,0 +1,9 @@
+[Unit]
+Description=WiggleR service
+
+[Service]
+WorkingDirectory=%h
+ExecStart=/bin/bash /usr/bin/wiggler_boot.sh
+
+[Install]
+WantedBy=default.target
