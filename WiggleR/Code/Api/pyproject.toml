@@ -1,6 +1,6 @@
 [project]
 name = "wiggler_studiorabota"
-version = "0.0.27"
+version = "0.0.33"
 authors = [
   { name="Vincent Kranendonk" },
 ]
@@ -14,6 +14,8 @@ classifiers = [
 dependencies = [
   'fastapi[all]>=0.68.0,<0.69.0',
   'python-crontab>=3.0.0,<4.0.0'
+  'rpi_ws281x',
+  'adafruit-circuitpython-neopixel'
 ]
 
 [project.scripts]
