@@ -1,9 +1,13 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import StreamingResponse
 from crontab import CronTab
 from datetime import datetime, timedelta
 import os
+import zipfile
+from fastapi.responses import StreamingResponse, Response
+from pathlib import Path
+import glob
+import io
 
 IMG_FOLDER = './Pictures'
 VID_FOLDER = './Videos'
@@ -24,6 +28,21 @@ def list_files(folder, path, extension):
                 "path": path + fileName
             })
     return out
+
+
+def zipfiles(filenames, name):
+    zip_subdir = "./"
+    zip_io = io.BytesIO()
+    with zipfile.ZipFile(zip_io, mode='w', compression=zipfile.ZIP_DEFLATED) as temp_zip:
+        for fpath in filenames:
+            _, fname = os.path.split(fpath)
+            zip_path = os.path.join(zip_subdir, fname)
+            temp_zip.write(fpath, zip_path)
+    return StreamingResponse(
+        iter([zip_io.getvalue()]),
+        media_type="application/x-zip-compressed",
+        headers={"Content-Disposition": f"attachment; filename={name}.zip"}
+    )
 
 
 @app.get("/")
@@ -101,3 +120,32 @@ async def video(date: str):
             yield from file_like
 
     return StreamingResponse(iterfile(), media_type="video/mp4")
+
+
+@app.get("/zip/stream/{date}")
+async def zip(date: str):
+    filenames = glob.glob(
+        str(Path(__file__).parent / f"{IMG_FOLDER}/{date}*.jpg"))
+    return zipfiles(filenames, date)
+
+
+@app.get("/zip/write/yesterday")
+async def zip():
+    yesterday = (datetime.now() - timedelta(1)).strftime('%Y-%m-%d')
+    os.system(
+        f'zip {yesterday} {yesterday}*.jpg')
+    return {
+        "name": yesterday,
+        "path": f'/images/{yesterday}.zip'
+    }
+
+
+@app.get("/zip/schedule")
+def schedule_timelapse():
+    cron = CronTab(user=os.getlogin())
+    cron.remove_all(comment='zip images')
+    job = cron.new(
+        command='curl localhost:8000/zip/write/yesterday', comment='zip images')
+    job.every().day()
+    cron.write()
+    return {"result": "yesterdays images will be zipped"}
