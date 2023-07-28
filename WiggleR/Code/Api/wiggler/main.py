@@ -132,8 +132,7 @@ async def zip(date: str):
 @app.get("/zip/write/yesterday")
 async def zip():
     yesterday = (datetime.now() - timedelta(1)).strftime('%Y-%m-%d')
-    os.system(
-        f'zip {yesterday} {yesterday}*.jpg')
+    os.system(f'zip ./{IMG_FOLDER}/{yesterday} ./{IMG_FOLDER}/{yesterday}*.jpg')
     return {
         "name": yesterday,
         "path": f'/images/{yesterday}.zip'
