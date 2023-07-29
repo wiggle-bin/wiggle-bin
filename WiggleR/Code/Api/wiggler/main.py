@@ -8,6 +8,7 @@ from fastapi.responses import StreamingResponse, Response
 from pathlib import Path
 import glob
 import io
+from wiggler.light import pixels
 
 IMG_FOLDER = './Pictures'
 VID_FOLDER = './Videos'
@@ -148,3 +149,11 @@ def schedule_timelapse():
     job.every().day()
     cron.write()
     return {"result": "yesterdays images will be zipped"}
+
+@app.get("/light/on/{intensity}")
+async def light(intensity: float = 1):
+    pixels.on(intensity)
+
+@app.get("/light/off")
+async def lightOff():
+    pixels.off()
