@@ -8,6 +8,9 @@ def main():
 
     parser = argparse.ArgumentParser(prog='wiggler', description='WiggleR API')
 
+    parser.add_argument('-i', '--install', action='store_true',
+                        help='first time setup')
+
     parser.add_argument('-s', '--server', action='store_true',
                         help='start api server')
 
@@ -16,7 +19,8 @@ def main():
                        help='install NeoPixel led ring')
     light.add_argument('--light', nargs='?',
                        const=0.1, help='light intensity from 0.01 to 1', type=float)
-    light.add_argument('--light-off', action='store_true', help='turn light off')
+    light.add_argument('--light-off', action='store_true',
+                       help='turn light off')
 
     service = parser.add_argument_group("service")
     service.add_argument('--service-install',
@@ -31,7 +35,10 @@ def main():
 
     args = parser.parse_args()
 
-    if args.server:
+    if args.install:
+        os.system(f"mkdir WiggleR")
+        os.system(f"mkdir WiggleR/Videos WiggleR/Pictures WiggleR/Zip")
+    elif args.server:
         os.system(f"uvicorn wiggler.main:app --reload --host 0.0.0.0")
     elif args.service_install:
         scriptFile = Path(__file__).parent / f"service/wiggler_boot.sh"
