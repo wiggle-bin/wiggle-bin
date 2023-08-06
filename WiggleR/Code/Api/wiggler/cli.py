@@ -2,7 +2,7 @@ import argparse
 import os
 from pathlib import Path
 from wiggler.light import pixels
-
+from wiggler.display import pot_slider
 
 def main():
 
@@ -33,6 +33,9 @@ def main():
                                   'status', 'disable', 'enable'],
                          help='control wiggler service')
 
+    display = parser.add_argument_group("display")
+    display.add_argument('--display', action='store_true', help='display images on screen')
+
     args = parser.parse_args()
 
     if args.install:
@@ -57,6 +60,8 @@ def main():
         pixels.on(args.light)
     elif args.light_off:
         pixels.off()
+    elif args.display:
+        pot_slider.main()
     else:
         print("run wiggler -h for options")
 

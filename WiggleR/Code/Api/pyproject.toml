@@ -1,6 +1,6 @@
 [project]
 name = "wiggler_studiorabota"
-version = "0.0.40"
+version = "0.0.46"
 authors = [
   { name="Vincent Kranendonk" },
 ]
@@ -15,7 +15,8 @@ dependencies = [
   'fastapi[all]>=0.68.0,<0.69.0',
   'python-crontab>=3.0.0,<4.0.0',
   'rpi_ws281x',
-  'adafruit-circuitpython-neopixel'
+  'adafruit-circuitpython-neopixel',
+  'pillow'
 ]
 
 [project.scripts]

@@ -10,7 +10,7 @@ import glob
 import io
 from wiggler.light import pixels
 
-BASE_FOLDER = './WiggleR'
+BASE_FOLDER = Path.home() / 'WiggleR'
 IMG_FOLDER = f"{BASE_FOLDER}/Pictures"
 VID_FOLDER = f"{BASE_FOLDER}/Videos"
 ZIP_FOLDER = f"{BASE_FOLDER}/Zip"

@@ -9,7 +9,7 @@ WiggleR/Code/Api/Camera/output/*
 WiggleR/Code/Api/Camera/data/*
 WiggleR/Code/Microphone/input
 .ipynb_checkpoints
-WiggleR
+WiggleR/Code/Api/wiggler/WiggleR
 
 # PYTHON
 # Byte-compiled / optimized / DLL files
