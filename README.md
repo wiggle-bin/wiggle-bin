@@ -8,8 +8,6 @@ To engineer a composting haven attuned to the intricacies of the [Umwelt](https:
 
 With the patience reminiscent of Darwinian pursuits, we diligently test and scrutinize their behavior, employing a fusion of time-honored methods and cutting-edge technologies such as electronic sensors and rapid prototyping tools. 
 
-![Images of tracking worms with OpenCV](./WiggleR/Images/WormTracking.png)
-
 This holistic approach allows us to unravel the secrets of our cherished wigglers, paving the way for a composting bin that harmonizes with their natural tendencies and fosters a symbiotic relationship with human caretakers.
 
 ## Why?
@@ -30,6 +28,8 @@ But here's the conundrum: how do you ascertain the happiness of your worms witho
 ## How?
 
 The central focus of our initiative is [WiggleR](./WiggleR/README.md)—an uncomplicated and user-friendly desktop composting bin designed for controlled experiments.
+
+![Images of tracking worms with OpenCV](./WiggleR/Images/WiggleRRaspberryAndRing.jpeg)
 
 Complementing this flagship project, we've developed several smaller, yet significant sub-projects:
 
