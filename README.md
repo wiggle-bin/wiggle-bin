@@ -2,21 +2,17 @@
 
 The mission of WiggleBin is to craft an **open-source, intelligent [vermicomposting](https://en.wikipedia.org/wiki/Vermicompost) bin** that cultivates joy for both earthworms and their human stewards. 
 
-Yet, delving into the essence of worm happiness raises intriguing queries: What defines a worm's contentment? How can we gauge their emotional state? Moreover, how do these fascinating creatures navigate and perceive their surroundings through their unique sensory mechanisms?
+In order to craft an open-source, intelligent composting bin, it's crucial to delve into the [Umwelt](https://en.wikipedia.org/wiki/Umwelt) (perceptual world) of worms. Hence, we've introduced the [WiggleR](./WiggleR/README.md), our innovative open-source desktop composting research unit.
 
-To engineer a composting haven attuned to the intricacies of the [Umwelt](https://en.wikipedia.org/wiki/Umwelt) (perceptual world) of the Red Wiggler ([Eisenia fetida](https://en.wikipedia.org/wiki/Eisenia_fetida)) and the European Nightcrawler ([Dendrobaena hortensis](https://en.wikipedia.org/wiki/Dendrobaena_hortensis)), we embark on a journey of exploration, mapping, and sensory observation. 
+Embark on a captivating, modern-day Darwinian journey into the realm of worms by creating your very own [WiggleR](./WiggleR/README.md). Join us in this thrilling endeavor!
 
-With the patience reminiscent of Darwinian pursuits, we diligently test and scrutinize their behavior, employing a fusion of time-honored methods and cutting-edge technologies such as electronic sensors and rapid prototyping tools. 
-
-This holistic approach allows us to unravel the secrets of our cherished wigglers, paving the way for a composting bin that harmonizes with their natural tendencies and fosters a symbiotic relationship with human caretakers.
-
-We extend a warm invitation for you to play a crucial role in our mission by assembling your own open-source desktop composting research unit—introducing the [WiggleR](./WiggleR/README.md). Join us in this exciting endeavor!
+![WiggleR - innovative open-source desktop composting research unit](WiggleR/Images/WiggleRUnit.jpeg)
 
 ## Why?
 
 Managing a worm bin comes with its share of challenges. Worms may decide to make a hasty escape, contend with overheating, or face the risk of drying out. As a caring caretaker, your priority is ensuring the well-being of your worms. 
 
-But here's the conundrum: how do you ascertain the happiness of your worms without the need for daily disruptions, minimizing disturbance to the worms, and avoiding the inconvenience of soiled hands?
+Yet, delving into the essence of worm happiness raises intriguing queries: What defines a worm's contentment? How can we gauge their emotional state? Moreover, how do these fascinating creatures navigate and perceive their surroundings through their unique sensory mechanisms?
 
  Here are some of the common problems.
 - Overheating
@@ -31,7 +27,7 @@ But here's the conundrum: how do you ascertain the happiness of your worms witho
 
 The central focus of our initiative is [WiggleR](./WiggleR/README.md)—an uncomplicated and user-friendly desktop composting bin designed for controlled experiments.
 
-![Images of tracking worms with OpenCV](./WiggleR/Images/WiggleRRaspberryAndRing.jpeg)
+![Image of WiggleR](./WiggleR/Images/WiggleRRaspberryAndRing.jpeg)
 
 Complementing this flagship project, we've developed several smaller, yet significant sub-projects:
 
