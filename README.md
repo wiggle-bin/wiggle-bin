@@ -10,6 +10,8 @@ With the patience reminiscent of Darwinian pursuits, we diligently test and scru
 
 This holistic approach allows us to unravel the secrets of our cherished wigglers, paving the way for a composting bin that harmonizes with their natural tendencies and fosters a symbiotic relationship with human caretakers.
 
+We extend a warm invitation for you to play a crucial role in our mission by assembling your own open-source desktop composting research unit—introducing the [WiggleR](./WiggleR/README.md). Join us in this exciting endeavor!
+
 ## Why?
 
 Managing a worm bin comes with its share of challenges. Worms may decide to make a hasty escape, contend with overheating, or face the risk of drying out. As a caring caretaker, your priority is ensuring the well-being of your worms. 
