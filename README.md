@@ -1,20 +1,18 @@
 # WiggleBin
 
-The goal of WiggleBin is to make an open-source smart [vermicomposting](https://en.wikipedia.org/wiki/Vermicompost) bin which makes both **worms** and **humans** happy.
+The mission of WiggleBin is to craft an **open-source, intelligent [vermicomposting](https://en.wikipedia.org/wiki/Vermicompost) bin** that cultivates joy for both earthworms and their human stewards. 
 
-![](./WiggleBin/Images/WiggleBinWithAlert.jpeg)
+In order to craft an open-source, intelligent composting bin, it's crucial to delve into the [Umwelt](https://en.wikipedia.org/wiki/Umwelt) (perceptual world) of worms. Hence, we've introduced the [WiggleR](./WiggleR/README.md), our innovative open-source desktop composting research unit.
 
-This project is in the research and testing phase. Currently our research involves trying out different sensors. See [issues](https://github.com/studiorabota/wiggle-bin/issues) for more info and how to contribute. Check [milestones](https://github.com/studiorabota/wiggle-bin/milestones) for our future plans.
+Embark on a captivating, modern-day Darwinian journey into the realm of worms by creating your very own [WiggleR](./WiggleR/README.md). Join us in this thrilling endeavor!
 
-> This documentation does not go into how to vermicompost. Plenty of other resources are available online.
-
-## License
-
-The WiggleBin is open source hardware. Hardware is covered under CERN-OHL-S-2.0 (`LICENSE.CERN-OHL-S-2.0.txt`) license and software under GPL-3.0-or-later (`LICENSE.GPL-3.0-or-later.txt`) license.
+![WiggleR - innovative open-source desktop composting research unit](WiggleR/Images/WiggleRUnit.jpeg)
 
 ## Why?
 
-Maintaining a worm bin is not without complications. Worms can "run" away, overheat or dry out. As a friendly human you want the best for your worms. So how can you know if your worms are happy? - without checking everyday, disturbing the worms and getting dirty hands.
+Managing a worm bin comes with its share of challenges. Worms may decide to make a hasty escape, contend with overheating, or face the risk of drying out. As a caring caretaker, your priority is ensuring the well-being of your worms. 
+
+Yet, delving into the essence of worm happiness raises intriguing queries: What defines a worm's contentment? How can we gauge their emotional state? Moreover, how do these fascinating creatures navigate and perceive their surroundings through their unique sensory mechanisms?
 
  Here are some of the common problems.
 - Overheating
@@ -27,11 +25,23 @@ Maintaining a worm bin is not without complications. Worms can "run" away, overh
 
 ## How?
 
-The Wiggle project contains 3 sub-projects.
+The central focus of our initiative is [WiggleR](./WiggleR/README.md)—an uncomplicated and user-friendly desktop composting bin designed for controlled experiments.
 
-1. [WiggleBin](./WiggleBin/README.md): Easy to make and maintain worm bin
-2. [WiggleAlert](./WiggleAlert/README.md): Alert system for unhappy worms
-3. [WiggleR](./WiggleR/README.md): Small desktop unit for controlled experiments
+![Image of WiggleR](./WiggleR/Images/WiggleRRaspberryAndRing.jpeg)
+
+Complementing this flagship project, we've developed several smaller, yet significant sub-projects:
+
+1. WiggleGate (Soon to be released): A specialized sensor engineered to detect worm movement.
+2. [WiggleAlert](./WiggleAlert/README.md): An alert system crafted to signal any signs of discomfort or unhappiness among the worms.
+3. [WiggleBin](./WiggleBin/README.md): A straightforward and easily manageable worm bin, ideal for both creation and maintenance.
+
+## License
+
+The WiggleBin is open source hardware. Hardware is covered under CERN-OHL-S-2.0 (`LICENSE.CERN-OHL-S-2.0.txt`) license and software under GPL-3.0-or-later (`LICENSE.GPL-3.0-or-later.txt`) license.
+
+## Status
+
+This project is in the research and testing phase. Currently our research involves trying out different sensors. See [issues](https://github.com/studiorabota/wiggle-bin/issues) for more info and how to contribute. Check [milestones](https://github.com/studiorabota/wiggle-bin/milestones) for our future plans.
 
 ## Thanks!
 
