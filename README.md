@@ -1,8 +1,8 @@
 # WiggleBin
 
-The mission of WiggleBin is to craft an **open-source, intelligent [vermicomposting](https://en.wikipedia.org/wiki/Vermicompost) bin** that cultivates joy for both earthworms and their human stewards. 
+The mission of WiggleBin is to craft an **open-source, intelligent vermicomposting bin** that cultivates joy for both worms and their human stewards. 
 
-In order to craft an open-source, intelligent composting bin, it's crucial to delve into the [Umwelt](https://en.wikipedia.org/wiki/Umwelt) (perceptual world) of worms. Hence, we've introduced the [WiggleR](./WiggleR/README.md), our innovative open-source desktop composting research unit.
+In order to craft an open-source, intelligent composting bin, it's crucial to delve into the Umwelt (perceptual world) of worms. Hence, we've introduced the [WiggleR](./WiggleR/README.md), our innovative open-source desktop composting research unit.
 
 Embark on a captivating, modern-day Darwinian journey into the realm of worms by creating your very own [WiggleR](./WiggleR/README.md). Join us in this thrilling endeavor!
 
