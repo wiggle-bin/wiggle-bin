@@ -1,6 +1,6 @@
 # WiggleBin
 
-WiggleBin's mission is to create an **open-source, intelligent vermicomposting bin** that not only nurtures the well-being of worms but also brings joy to their human caretakers.
+WiggleBin's mission is to create an **open-source, intelligent vermicomposting bin** that not only nurtures the well-being of worms but also brings joy to their human caretakers. T
 
 Currently, our project is in the research and testing phase. To conduct thorough investigations, we have developed the [WiggleR](https://github.com/wiggle-bin/wiggle-r)—an innovative desktop research unit designed for conducting controlled experiments with worms.
 
